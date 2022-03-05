@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/accounting-frontend",
+  "sourceRoot": "apps/accounting-frontend/src",
+  "prefix": "accounting",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/accounting-frontend",
+        "index": "apps/accounting-frontend/src/index.html",
+        "main": "apps/accounting-frontend/src/main.ts",
+        "polyfills": "apps/accounting-frontend/src/polyfills.ts",
+        "tsConfig": "apps/accounting-frontend/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/accounting-frontend/src/favicon.ico",
+          "apps/accounting-frontend/src/assets"
+        ],
+        "styles": ["apps/accounting-frontend/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/accounting-frontend/src/environments/environment.ts",
+              "with": "apps/accounting-frontend/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "accounting-frontend:build:production"
+        },
+        "development": {
+          "browserTarget": "accounting-frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "accounting-frontend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/accounting-frontend/src/**/*.ts",
+          "apps/accounting-frontend/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/accounting-frontend"],
+      "options": {
+        "jestConfig": "apps/accounting-frontend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
