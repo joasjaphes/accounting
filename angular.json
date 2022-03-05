@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "accounting-backaend": "apps/accounting-backaend",
     "accounting-frontend": "apps/accounting-frontend",
     "accounting-frontend-e2e": "apps/accounting-frontend-e2e"
   }

@@ -1,0 +1,52 @@
+{
+  "root": "apps/accounting-backaend",
+  "sourceRoot": "apps/accounting-backaend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/accounting-backaend",
+        "main": "apps/accounting-backaend/src/main.ts",
+        "tsConfig": "apps/accounting-backaend/tsconfig.app.json",
+        "assets": ["apps/accounting-backaend/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/accounting-backaend/src/environments/environment.ts",
+              "with": "apps/accounting-backaend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "accounting-backaend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/accounting-backaend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/accounting-backaend"],
+      "options": {
+        "jestConfig": "apps/accounting-backaend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
