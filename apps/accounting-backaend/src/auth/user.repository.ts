@@ -20,6 +20,8 @@ export class UserRepository extends Repository<User> {
         user.password = await this.hashPassword(password,salt); 
         user.salt = salt;       
         await user.save();
+        delete user.password;
+        delete user.salt;
         return user;
     }
 
