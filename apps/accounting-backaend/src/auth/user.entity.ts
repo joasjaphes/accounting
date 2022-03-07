@@ -1,22 +1,31 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id:number;
+    id: number;
 
     @Column()
-    firstName:string;
+    username:string;
 
     @Column()
-    surname:string;
+    firstName: string;
 
     @Column()
-    lastname:string;
+    surname: string;
 
     @Column()
-    password:string;
+    lastname: string;
 
     @Column()
-    salt:string;
+    password: string;
+
+    @Column()
+    salt: string;
+
+    async validatePassword(password: string) {
+        const hash = await bcrypt.hash(password, this.salt);
+        return hash === this.password;
+    }
 }

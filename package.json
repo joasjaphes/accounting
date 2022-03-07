@@ -29,6 +29,7 @@
     "@nrwl/angular": "13.8.4",
     "bcrypt": "^5.0.1",
     "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
     "pg": "^8.7.3",
     "postgres": "^1.0.2",
     "reflect-metadata": "^0.1.13",
