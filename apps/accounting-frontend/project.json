@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/accounting-frontend",
         "index": "apps/accounting-frontend/src/index.html",
@@ -18,7 +20,10 @@
           "apps/accounting-frontend/src/favicon.ico",
           "apps/accounting-frontend/src/assets"
         ],
-        "styles": ["apps/accounting-frontend/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+          "apps/accounting-frontend/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +88,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/accounting-frontend"],
+      "outputs": [
+        "coverage/apps/accounting-frontend"
+      ],
       "options": {
         "jestConfig": "apps/accounting-frontend/jest.config.js",
         "passWithNoTests": true
