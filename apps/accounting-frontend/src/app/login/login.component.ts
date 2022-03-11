@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'accounting-login',
@@ -7,13 +8,21 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation:ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
+  loginForm:FormGroup;
 
-  constructor() {
-    console.log();
+  constructor(private formBuilder:FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password:['', Validators.required]
+    })
   }
 
   ngOnInit(): void {
     console.log();
+  }
+
+  login() {
+    console.log('credentials', this.loginForm.value);
   }
 
 }
