@@ -1,4 +1,39 @@
 .content-container {
-    background-image: url('../../assets/accounting-bg.jpg');
+    // background-image: url('../../assets/accounting-background.jpg');
+
     height: 100vh;
+    vertical-align: middle;
+}
+
+.login-btn {
+    width: 100%;
+    border: none;
+    background-color: #2596be;
+    color: white;
+    font-weight: bold;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.login-form-container {
+    // background-color: #2596be;
+    padding: 10px;
+    // border-radius: 20px;
+    height: fit-content;
+    width: 30%;
+}
+
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//     color: white !important;
+// }
+
+.mat-form-field-label {
+    // color: white !important;
+    padding-left: 5px;
+}
+
+.mat-form-field {
+    input {
+        padding-left: 5px;
+    }
 }
