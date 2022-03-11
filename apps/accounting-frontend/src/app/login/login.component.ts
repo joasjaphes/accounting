@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       const errorObject: HttpErrorResponse = <HttpErrorResponse> e;
       this.loginError$ = of(errorObject.error.message);
     } 
-    // console.log('credentials', this.loginForm.value);
   }
 
 }
