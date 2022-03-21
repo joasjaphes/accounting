@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { go } from '../store/actions/router.actions';
-import { State } from '../store/reducers';
+import { AppState } from '../store/reducers';
 
 @Component({
   selector: 'accounting-home',
@@ -10,7 +10,7 @@ import { State } from '../store/reducers';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private store: Store<State>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem('accounting-token');

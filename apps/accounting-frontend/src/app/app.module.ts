@@ -18,9 +18,16 @@ import { effects } from './store/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer } from './store/reducers/router.reducer';
 import { AppRoutingModule } from './app-routing.module';
+import { MainNavComponent } from './home/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,
@@ -31,7 +38,13 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }), !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer }),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     {
