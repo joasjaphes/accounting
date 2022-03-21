@@ -1,5 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { UnauthorizedException } from '@nestjs/common';
 
 @Entity()
 export class User extends BaseEntity {
@@ -26,6 +27,19 @@ export class User extends BaseEntity {
 
     async validatePassword(password: string) {
         const hash = await bcrypt.hash(password, this.salt);
-        return hash === this.password;
+        if(hash === this.password) {
+            return true;
+        }else {
+            throw new UnauthorizedException('Wrong Password');
+        }
+    }
+
+    static async authenticateUser(username:string, password:string) {
+        const user = await this.findOne({username});
+        if(user) {
+            return await user.validatePassword(password);
+        }else {
+            throw new UnauthorizedException('Wrong Username');
+        }
     }
 }

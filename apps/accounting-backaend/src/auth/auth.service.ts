@@ -1,5 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { atob } from 'buffer';
 import { SignInDto } from './dto/signin.dto';
 import { SignupDto } from './dto/signup.dto';
 import { User } from './user.entity';
@@ -20,9 +21,22 @@ export class AuthService {
         }else if(!(await refUser.validatePassword(password))) {
             throw new UnauthorizedException('Wrong password');
         }else {
-            const payload = {username};
-            const accesstoken = await this.jwtService.sign(payload);
-            return {accesstoken};
+            // const payload = {username};
+            // const accesstoken = await this.jwtService.sign(payload);
+            const buff = Buffer.from(`${username}:${password}`,'binary');
+            const token = buff.toString('base64');
+            delete refUser.password;
+            delete refUser.salt;
+            return {...refUser, token};
         }        
     }
+
+    async authenticateUser(username: string, password: string) {
+        const user = await this.userRepository.findOne({ username });
+        if (user) {
+          return await user.validatePassword(password);
+        } else {
+          return false;
+        }
+      }
 }

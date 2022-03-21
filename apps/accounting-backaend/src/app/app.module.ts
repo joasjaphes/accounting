@@ -6,11 +6,13 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
 import { User } from '../auth/user.entity';
+import { TransactionsModule } from '../transactions/transactions.module';
 
 
 @Module({
   imports: [
     AuthModule,
+    TransactionsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
