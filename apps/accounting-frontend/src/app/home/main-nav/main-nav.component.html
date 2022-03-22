@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
-  <div>
-    <mat-icon style="cursor: pointer;" color="white" *ngIf="(isHandset$ | async)" (click)="drawer.toggle()">menu</mat-icon>
+  <div class="d-flex">
+    <span *ngIf="(isHandset$ | async)">
+      <mat-icon style="cursor: pointer;" color="white" (click)="drawer.toggle()">menu</mat-icon>&nbsp;&nbsp;
+    </span>
+    <span>
+      <h1>Accounting Made Easy</h1>
+    </span>
   </div>
 </mat-toolbar>
 <mat-sidenav-container>

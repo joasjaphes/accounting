@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       const user: User = await firstValueFrom(this.http.post('api/auth/signin', credentials) as Observable<User>);
       console.log('User', user);
       localStorage.setItem('accounting-token', user.token ?? '');
+      localStorage.setItem('accounting-user',JSON.stringify(user));
       this.store.dispatch(go({ route: { path: ['/'] } }));
     } catch (e: unknown) {
       const errorObject: HttpErrorResponse = <HttpErrorResponse>e;
