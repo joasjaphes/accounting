@@ -27,6 +27,12 @@ export const userReducer = createReducer(
       ...state,
       currentUser: action.user
     };
+  }),
+  on(userActions.removeCurrentUser, (state) => {
+    return {
+      ...state,
+      currentUser:undefined
+    }
   })
 );
 

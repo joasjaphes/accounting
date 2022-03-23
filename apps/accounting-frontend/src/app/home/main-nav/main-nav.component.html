@@ -1,15 +1,38 @@
 <mat-toolbar color="primary">
-  <div class="d-flex">
-    <span *ngIf="(isHandset$ | async)">
-      <mat-icon style="cursor: pointer;" color="white" (click)="drawer.toggle()">menu</mat-icon>&nbsp;&nbsp;
-    </span>
-    <span>
-      <h1>Accounting Made Easy</h1>
-    </span>
+  <div class="d-flex" style="width: 100%">
+    <div>
+      <span *ngIf="isHandset$ | async">
+        <mat-icon
+          style="cursor: pointer"
+          color="white"
+          (click)="drawer.toggle()"
+          >menu</mat-icon
+        >&nbsp;&nbsp;
+      </span>
+      <span>
+        <h1>Accounting Made Easy</h1>
+      </span>
+    </div>
+    <div class="ms-auto">
+      <mat-icon style="cursor: pointer" [matMenuTriggerFor]="menu"
+        >person</mat-icon
+      >
+      <span>{{(currentUser$ | async)?.firstName}}</span>
+    </div>
+    <div>
+      <mat-menu #menu>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </div>
   </div>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #drawer [opened]=" (isHandset$ | async) ? false : true" [mode]="(isHandset$ | async) ? 'over' : 'side'">Menu</mat-sidenav>
+  <mat-sidenav
+    #drawer
+    [opened]="(isHandset$ | async) ? false : true"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    >Menu</mat-sidenav
+  >
   <mat-sidenav-content>
     <div class="mat-elevation-z3 content">Content</div>
   </mat-sidenav-content>
