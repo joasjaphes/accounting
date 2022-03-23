@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { firstValueFrom, Observable, of } from 'rxjs';
 import { HttpClientService } from '../services/http-client.service';
 import { go } from '../store/actions/router.actions';
+import { addCurrentUser } from '../store/actions/user.actions';
 import { User } from '../store/models/user.model';
 import { AppState } from '../store/reducers';
 
@@ -36,7 +37,8 @@ export class LoginComponent implements OnInit {
       const user: User = await firstValueFrom(this.http.post('api/auth/signin', credentials) as Observable<User>);
       console.log('User', user);
       localStorage.setItem('accounting-token', user.token ?? '');
-      localStorage.setItem('accounting-user',JSON.stringify(user));
+      localStorage.setItem('accounting-user', JSON.stringify(user));
+      this.store.dispatch(addCurrentUser({ user }));
       this.store.dispatch(go({ route: { path: ['/'] } }));
     } catch (e: unknown) {
       const errorObject: HttpErrorResponse = <HttpErrorResponse>e;
