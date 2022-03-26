@@ -42,6 +42,11 @@ $accounting-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($accounting-theme);
 
+@font-face {
+  font-family: 'accounting-font';
+  font-style: normal;
+  src: url('./assets/fonts/Blackode.ttf') format('truetype');
+}
 
 html,
 body {
@@ -49,7 +54,8 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'accounting-font' !important;
+
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {

@@ -9,19 +9,19 @@
           >menu</mat-icon
         >&nbsp;&nbsp;
       </span>
-      <span>
-        <h1>Accounting Made Easy</h1>
+      <span style="font-family: accounting-font;">
+        Accounting Made Easy
       </span>
     </div>
     <div class="ms-auto">
       <mat-icon style="cursor: pointer" [matMenuTriggerFor]="menu"
         >person</mat-icon
       >
-      <span>{{(currentUser$ | async)?.firstName}}</span>
+      <span>{{ currentUser?.firstName }}</span>
     </div>
     <div>
       <mat-menu #menu>
-        <button mat-menu-item (click)="logout()">Logout</button>
+        <button mat-menu-item (click)="onLogout()">Logout</button>
       </mat-menu>
     </div>
   </div>
@@ -31,8 +31,18 @@
     #drawer
     [opened]="(isHandset$ | async) ? false : true"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    >Menu</mat-sidenav
   >
+    Menu
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <ng-container *ngFor="let menu of menus">
+        <a href="" mat-list-item class="menu-link">
+          <img src="../../../assets/icons/{{menu.icon}}" height="30px" width="30px" alt=""> &nbsp;&nbsp; 
+          {{ menu.title }}
+          </a>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
   <mat-sidenav-content>
     <div class="mat-elevation-z3 content">Content</div>
   </mat-sidenav-content>

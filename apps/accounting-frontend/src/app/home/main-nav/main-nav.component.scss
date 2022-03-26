@@ -25,11 +25,11 @@
   //  height: 100vh;
    margin: 16px;
    color: white;
-   padding: 10px;
+  //  padding: 10px;
    text-align: center;
    background-color: $accounting-primary-color;
    border-radius: 10px;
-   width: 200px;
+   width: 300px;
 }
 
 .content {
@@ -38,4 +38,12 @@
   margin-left: 32px;
   border-radius: 10px;
   padding: 20px;
+}
+
+.menu-link {
+  color: white !important;
+  font-family: 'accounting-font';
+  // margin: 10px 5px !important;
+  // text-decoration: none;
+  // text-align: start !important;
 }
