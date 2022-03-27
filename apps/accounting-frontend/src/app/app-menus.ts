@@ -22,7 +22,7 @@ export const appMenus: AppMenu[] = [
     {
         title: 'Journal Entry',
         icon: 'journal-entry.png',
-        route: 'dashboard'
+        route: 'journal-entry'
     },
     {
         title: 'Financial Statements',

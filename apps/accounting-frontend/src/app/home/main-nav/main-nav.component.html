@@ -36,7 +36,7 @@
     <mat-divider></mat-divider>
     <mat-nav-list>
       <ng-container *ngFor="let menu of menus">
-        <a href="" mat-list-item class="menu-link">
+        <a  [routerLink]="menu.route" mat-list-item class="menu-link" >
           <img src="../../../assets/icons/{{menu.icon}}" height="30px" width="30px" alt=""> &nbsp;&nbsp; 
           {{ menu.title }}
           </a>
