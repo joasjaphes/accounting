@@ -1,1 +1,5 @@
-<accounting-page-header [title]="'Accounts'" [icon]="'account-black.png'"></accounting-page-header>
+<accounting-page-layout [title]="'Accounts'" [icon]="'account-black.png'">
+    <ng-container ngProjectAs="page-content">
+        <div>Accounts</div>
+    </ng-container>
+</accounting-page-layout>

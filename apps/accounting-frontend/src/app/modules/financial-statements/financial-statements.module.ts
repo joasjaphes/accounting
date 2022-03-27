@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FinancialStatementsRoutingModule } from './financial-statements-routing.module';
 import { FinancialStatementsComponent } from './financial-statements.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { FinancialStatementsComponent } from './financial-statements.component';
   ],
   imports: [
     CommonModule,
-    FinancialStatementsRoutingModule
+    FinancialStatementsRoutingModule,
+    SharedModule
   ]
 })
 export class FinancialStatementsModule { }

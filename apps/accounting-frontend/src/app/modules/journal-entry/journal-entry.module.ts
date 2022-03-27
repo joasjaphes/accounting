@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { JournalEntryRoutingModule } from './journal-entry-routing.module';
 import { JournalEntryComponent } from './journal-entry.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { JournalEntryComponent } from './journal-entry.component';
   ],
   imports: [
     CommonModule,
-    JournalEntryRoutingModule
+    JournalEntryRoutingModule,
+    SharedModule
   ]
 })
 export class JournalEntryModule { }
