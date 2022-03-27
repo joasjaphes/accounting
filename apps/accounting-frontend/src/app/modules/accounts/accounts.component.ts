@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { accounts } from './accounts-categories';
 
 @Component({
   selector: 'accounting-accounts',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accounts.component.scss']
 })
 export class AccountsComponent implements OnInit {
+  accounts = accounts;
 
-  constructor() { }
+  // constructor() { }
 
   ngOnInit(): void {
+    console.log
   }
 
 }
