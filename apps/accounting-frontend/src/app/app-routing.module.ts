@@ -3,11 +3,22 @@ import { CommonModule } from '@angular/common';
 import { PreloadAllModules, Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 const routes:Route[] = [
   {
     path:'',
     component:HomeComponent,
+    children:[
+      {
+        path:'',
+        component:DashboardComponent
+      },
+      {
+        path:'dashboard',
+        component:DashboardComponent
+      }
+    ]
   },
   {
     path:'login',
