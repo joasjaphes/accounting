@@ -1,0 +1,17 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'accounting-page-header',
+  templateUrl: './page-header.component.html',
+  styleUrls: ['./page-header.component.scss']
+})
+export class PageHeaderComponent implements OnInit {
+  @Input() title='';
+  @Input() icon;
+  // constructor() {}
+
+  ngOnInit(): void {
+    console.log('top')
+  }
+
+}
