@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'accounting-page-layout',
@@ -8,11 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PageLayoutComponent implements OnInit {
   @Input() title = '';
   @Input() icon;
+  @Input() showAdd = false;
+  @Output() add = new EventEmitter();
 
   // constructor() { }
 
   ngOnInit(): void {
     console.log
+  }
+
+  onAdd() {
+    this.add.emit();
   }
 
 }

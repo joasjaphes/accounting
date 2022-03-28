@@ -21,4 +21,8 @@ export class AssetsComponent implements OnInit {
     console.log
   }
 
+  onAdd() {
+    console.log('Adding');
+  }
+
 }

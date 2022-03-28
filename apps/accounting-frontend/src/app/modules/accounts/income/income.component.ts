@@ -18,4 +18,6 @@ export class IncomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAdd() {}
+
 }

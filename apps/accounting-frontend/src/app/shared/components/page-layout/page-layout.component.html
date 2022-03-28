@@ -1,6 +1,18 @@
 <div class="header">
-    <accounting-page-header [title]="title" [icon]="icon"></accounting-page-header>
+  <accounting-page-header
+    [title]="title"
+    [icon]="icon"
+  ></accounting-page-header>
 </div>
 <div class="page-content container pt-2">
-    <ng-content select="page-content"></ng-content>
+  <ng-content select="page-content"></ng-content>
+  <button
+    style="position: absolute; bottom: 30px; right: 20px"
+    mat-fab
+    color="primary"
+    *ngIf="showAdd"
+    (click)="onAdd()"
+  >
+    <i class="fa fa-plus" aria-hidden="true" style="font-size: 18px"></i>
+  </button>
 </div>

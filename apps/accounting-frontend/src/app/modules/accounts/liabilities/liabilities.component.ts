@@ -18,4 +18,6 @@ export class LiabilitiesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAdd() {}
+
 }

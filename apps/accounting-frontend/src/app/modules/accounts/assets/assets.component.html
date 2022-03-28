@@ -1,4 +1,4 @@
-<accounting-page-layout [icon]="'asset.png'" [title]="'Assets'">
+<accounting-page-layout [icon]="'asset.png'" [title]="'Assets'" [showAdd]="true" (add)="onAdd()">
     <ng-container ngProjectAs="page-content">
         <div>
             <accounting-data-table [tableConfiguration]="tableConfigurations" [data]="[]"></accounting-data-table>
