@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TableConfiguration } from '../../../shared/components/data-table/tableconfiguration';
+import { AddEditAccountComponent } from '../add-edit-account/add-edit-account.component';
 
 @Component({
   selector: 'accounting-liabilities',
@@ -13,11 +15,13 @@ export class LiabilitiesComponent implements OnInit {
       { name: 'balance', label: 'Account Balance' }
     ]
   };
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  onAdd() {}
+  onAdd() {
+    this.dialog.open(AddEditAccountComponent)
+  }
 
 }

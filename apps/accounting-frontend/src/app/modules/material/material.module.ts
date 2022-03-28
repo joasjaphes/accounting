@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatMenuModule,
     MatToolbarModule,
     MatDividerModule,
+    MatDialogModule
   ],
   exports:[
     MatFormFieldModule,
@@ -26,6 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatMenuModule,
     MatToolbarModule,
     MatDividerModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TableConfiguration } from '../../../shared/components/data-table/tableconfiguration';
+import { AddEditAccountComponent } from '../add-edit-account/add-edit-account.component';
 
 @Component({
   selector: 'accounting-share-holder-equity',
@@ -13,9 +15,13 @@ export class ShareHolderEquityComponent implements OnInit {
       {name:'balance', label:'Account Balance'},
     ]
   }
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  onAdd() {
+    this.dialog.open(AddEditAccountComponent)
   }
 
 }

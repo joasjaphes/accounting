@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TableConfiguration } from '../../../shared/components/data-table/tableconfiguration';
+import { AddEditAccountComponent } from '../add-edit-account/add-edit-account.component';
 
 @Component({
   selector: 'accounting-assets',
@@ -8,21 +10,23 @@ import { TableConfiguration } from '../../../shared/components/data-table/tablec
 })
 export class AssetsComponent implements OnInit {
 
-  tableConfigurations:TableConfiguration = {
-    tableColumns:[
-      {name:'name', label:'Account Name'},
-      {name:'balance', label:'Account Balance'},
+  tableConfigurations: TableConfiguration = {
+    tableColumns: [
+      { name: 'name', label: 'Account Name' },
+      { name: 'balance', label: 'Account Balance' },
     ]
-  } 
+  };
 
-  // constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    console.log
+    console.log;
   }
 
   onAdd() {
-    console.log('Adding');
+    this.dialog.open(AddEditAccountComponent,{
+      // width: '90%'
+    })
   }
 
 }

@@ -9,6 +9,9 @@ import { LiabilitiesComponent } from './liabilities/liabilities.component';
 import { ShareHolderEquityComponent } from './share-holder-equity/share-holder-equity.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { IncomeComponent } from './income/income.component';
+import { AddEditAccountComponent } from './add-edit-account/add-edit-account.component';
+import { AccountsListComponent } from './accounts-list/accounts-list.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -18,12 +21,15 @@ import { IncomeComponent } from './income/income.component';
     LiabilitiesComponent,
     ShareHolderEquityComponent,
     ExpensesComponent,
-    IncomeComponent
+    IncomeComponent,
+    AddEditAccountComponent,
+    AccountsListComponent
   ],
   imports: [
     CommonModule,
     AccountsRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class AccountsModule { }
