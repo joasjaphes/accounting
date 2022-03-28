@@ -6,6 +6,10 @@ import { PageLayoutComponent } from './components/page-layout/page-layout.compon
 import { SingleMenuCardComponent } from './components/single-menu-card/single-menu-card.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { RouterModule } from '@angular/router';
+import { DataTableComponent } from './components/data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -14,18 +18,23 @@ import { RouterModule } from '@angular/router';
     PageHeaderComponent,
     PageLayoutComponent,
     SingleMenuCardComponent,
-    MenuListComponent
+    MenuListComponent,
+    DataTableComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports:[
     PageHeaderComponent,
     PageLayoutComponent,
     SingleMenuCardComponent,
-    MenuListComponent
+    MenuListComponent,
+    DataTableComponent
   ]
 })
 export class SharedModule { }

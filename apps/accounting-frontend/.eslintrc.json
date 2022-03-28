@@ -24,7 +24,8 @@
             "prefix": "accounting",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/no-empty-lifecycle-method":false
       }
     },
     {

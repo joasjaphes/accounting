@@ -1,5 +1,5 @@
 <accounting-page-layout [title]="'Share holder equity'" [icon]="'equity.png'">
     <ng-container ngProjectAs="page-content">
-        Share holder equity
+        <accounting-data-table [tableConfiguration]="tableConfigurations" [data]="[]"></accounting-data-table>
     </ng-container>
 </accounting-page-layout>

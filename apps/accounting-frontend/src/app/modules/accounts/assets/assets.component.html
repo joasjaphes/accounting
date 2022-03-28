@@ -1,5 +1,7 @@
 <accounting-page-layout [icon]="'asset.png'" [title]="'Assets'">
     <ng-container ngProjectAs="page-content">
-        Assets
+        <div>
+            <accounting-data-table [tableConfiguration]="tableConfigurations" [data]="[]"></accounting-data-table>
+        </div>
     </ng-container>
 </accounting-page-layout>

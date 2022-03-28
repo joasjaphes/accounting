@@ -1,0 +1,8 @@
+.full-width-table {
+  width: 100%;
+  /* margin: 10px; */
+}
+
+.mat-table {
+  font-family: 'accounting-font' !important;
+}
