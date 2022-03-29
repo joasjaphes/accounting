@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
+import { SaveComponent } from './components/save/save.component';
 
 
 
@@ -21,7 +22,8 @@ import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.
     SingleMenuCardComponent,
     MenuListComponent,
     DataTableComponent,
-    DialogLayoutComponent
+    DialogLayoutComponent,
+    SaveComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.
     SingleMenuCardComponent,
     MenuListComponent,
     DataTableComponent,
-    DialogLayoutComponent
+    DialogLayoutComponent,
+    SaveComponent
   ]
 })
 export class SharedModule { }
