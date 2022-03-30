@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TableConfiguration } from '../../../shared/components/data-table/tableconfiguration';
+import { AccountCategory } from '../accounts-categories';
 import { AddEditAccountComponent } from '../add-edit-account/add-edit-account.component';
 
 @Component({
@@ -21,7 +22,13 @@ export class IncomeComponent implements OnInit {
   }
 
   onAdd() {
-    this.dialog.open(AddEditAccountComponent)
+    this.dialog.open(AddEditAccountComponent, {
+      disableClose: true,
+      data: {
+        title:'income',
+        accountKey:AccountCategory.INCOME
+      }
+    })
   }
 
 }

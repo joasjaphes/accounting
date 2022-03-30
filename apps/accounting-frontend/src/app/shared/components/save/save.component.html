@@ -1,6 +1,6 @@
 <div class="save-area">
   <ng-container *ngIf="!confirming">
-    <button mat-flat-button class="cancel-btn" (click)="onCancel()">
+    <button type="button" mat-flat-button class="cancel-btn" (click)="onCancel()">
       <i class="fa fa-times" aria-hidden="true"></i>&nbsp; Cancel</button
     >&nbsp;&nbsp;
     <button mat-raised-button class="save-btn" (click)="onSave(confirmFirst)">
@@ -14,7 +14,7 @@
         <i class="fa fa-check" aria-hidden="true" (click)="onSave()"></i>&nbsp;
         Yes</button
       >&nbsp;
-      <button class="confirm-no" (click)="onCancel()">
+      <button class="confirm-no" (click)="confirming = false">
         <i class="fa fa-times" aria-hidden="true"></i>&nbsp; No
       </button>
     </p>

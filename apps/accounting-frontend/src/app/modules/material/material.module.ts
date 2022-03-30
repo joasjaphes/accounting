@@ -7,6 +7,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatToolbarModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   exports:[
     MatFormFieldModule,
@@ -28,7 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatToolbarModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

@@ -37,8 +37,9 @@
   margin: 16px;
   margin-left: 32px;
   border-radius: 10px;
+  // background-color: red;
   // overflow: auto;
-  // padding: 20px;
+  // padding: 0 5px;
 }
 
 .menu-link {
@@ -66,4 +67,8 @@
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 60px;
+}
+
+.mat-sidenav-content {
+  padding: 0 !important;
 }
