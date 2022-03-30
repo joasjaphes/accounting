@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { ROUTE_ANIMATIONS_ELEMENTS } from '../../shared/animations/router-animation';
 
 @Component({
   selector: 'accounting-dashboard',
@@ -9,6 +10,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class DashboardComponent {
   /** Based on the screen size, switch from standard to one column per row */
+  routeAnimationElement = ROUTE_ANIMATIONS_ELEMENTS;
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {

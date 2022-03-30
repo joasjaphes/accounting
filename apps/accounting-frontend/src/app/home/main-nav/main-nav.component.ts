@@ -4,14 +4,18 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { User } from '../../store/models/user.model';
 import { AppMenu } from '../../app-menus';
+import { routeAnimations, ROUTE_ANIMATIONS_ELEMENTS } from '../../shared/animations/router-animation';
 
 @Component({
   selector: 'accounting-main-nav',
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.scss'],
+  animations:[routeAnimations],
   encapsulation: ViewEncapsulation.None
 })
 export class MainNavComponent {
+
+  routeAnimations = ROUTE_ANIMATIONS_ELEMENTS;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

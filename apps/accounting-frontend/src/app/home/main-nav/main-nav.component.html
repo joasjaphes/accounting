@@ -36,7 +36,7 @@
     <mat-divider></mat-divider>
     <mat-nav-list>
       <ng-container *ngFor="let menu of menus">
-        <a  [routerLink]="menu.route" mat-list-item class="menu-link" >
+        <a  [routerLink]="menu.route" mat-list-item class="menu-link">
           <img src="../../../assets/icons/{{menu.icon}}" height="30px" width="30px" alt=""> &nbsp;&nbsp; 
           {{ menu.title }}
           </a>
@@ -44,8 +44,8 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="mat-elevation-z3 content">
-      <router-outlet></router-outlet>
+    <div class="mat-elevation-z3 content" [@routeAnimations] ="o.isActivated ? o.activatedRoute : ''">
+      <router-outlet #o="outlet"></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

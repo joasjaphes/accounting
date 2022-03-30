@@ -12,15 +12,18 @@ const routes: Route[] = [
     children: [
       {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: { state: "dashboard" }
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: { state: "dashboard" }
       },
       {
         path: 'accounts',
-        loadChildren: () => import('./modules/accounts/accounts.module').then(m => m.AccountsModule)
+        loadChildren: () => import('./modules/accounts/accounts.module').then(m => m.AccountsModule),
+        data: { state: "accounts" }
       },
       {
         path: 'transactions',
