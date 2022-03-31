@@ -1,7 +1,12 @@
 import { Component, Inject, Injectable, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { CommonService } from '../../../services/common.service';
+import { upsertAccount } from '../../../store/actions/account.actions';
 import { Account } from '../../../store/models/account.model';
+import { AppState } from '../../../store/reducers';
+import { AccountCategory } from '../accounts-categories';
 
 @Component({
   selector: 'accounting-add-edit-account',
@@ -13,7 +18,13 @@ export class AddEditAccountComponent implements OnInit {
 
   accountForm: FormGroup;
   currentAccount: Account;
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: { title: string, accountKey: string, currentAccount: Account; }) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog,
+    private store: Store<AppState>,
+    private commonService: CommonService,
+    @Inject(MAT_DIALOG_DATA) public data: { title: string, accountKey: AccountCategory.ASSET | AccountCategory.EXPENSES | AccountCategory.INCOME | AccountCategory.LIABILITY | AccountCategory.SHARE_HOLDER_EQUITY, currentAccount: Account; },
+  ) { }
 
   ngOnInit(): void {
     this.accountForm = this.formBuilder.group({
@@ -38,7 +49,23 @@ export class AddEditAccountComponent implements OnInit {
   }
 
   onSave() {
-    this.dialog.closeAll();
+    try {
+      const formData = this.accountForm.value;
+      console.log('form data', formData);
+      const id = this.currentAccount?.id ?? this.commonService.makeId();
+      const accountPayload: Account = {
+        id,
+        name: formData.name,
+        description: formData.description,
+        status: formData.status,
+        category: this.data.accountKey,
+        balance: formData.balance
+      };
+      this.store.dispatch(upsertAccount({ account: accountPayload }));
+    } catch (e) {
+      console.log('Error saving account', e);
+    }
+    this.onClose();
   }
 
 }

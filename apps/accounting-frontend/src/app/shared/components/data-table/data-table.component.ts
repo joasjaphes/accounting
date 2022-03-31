@@ -21,7 +21,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
       more: false
     }
   };
-  displayedColumns:string[];
+  displayedColumns: string[];
 
   constructor() {
     // this.dataSource = new MatTableDataSource([]);
@@ -31,9 +31,18 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     this.displayedColumns = ['position', ...this.tableConfiguration.tableColumns.map(column => column.name)];
   }
 
+  ngOnChanges() {
+    this.initData();
+  }
+
   ngAfterViewInit(): void {
+    this.initData();
+  }
+
+  initData() {
     this.displayedColumns = ['position', ...this.tableConfiguration.tableColumns.map(column => column.name)];
     this.dataSource = new MatTableDataSource(this.data);
+    console.log('data', this.data);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }

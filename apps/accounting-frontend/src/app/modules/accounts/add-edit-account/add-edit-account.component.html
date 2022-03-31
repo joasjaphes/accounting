@@ -1,6 +1,6 @@
 <accounting-dialog-layout [title]="'Add new ' + data.title + ' account'">
   <ng-container ngProjectAs="page-content">
-    <form formGroup="accountForm">
+    <form [formGroup]="accountForm">
       <div class="row m-2">
         <div class="col-sm-6">
           <mat-form-field>
@@ -47,7 +47,7 @@
         <div class="col-sm-12">
           <accounting-save
             (cancel)="onClose()"
-            (save)="onClose()"
+            (save)="onSave()"
           ></accounting-save>
         </div>
       </div>
