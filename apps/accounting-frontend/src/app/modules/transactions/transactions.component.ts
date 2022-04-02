@@ -6,6 +6,7 @@ import { TableConfiguration } from '../../shared/components/data-table/tableconf
 import { Transaction } from '../../store/models/transaction.model';
 import { AppState } from '../../store/reducers';
 import * as transactionSelector from '../../store/selectors/transaction.selectors';
+import { AddEditTransactionComponent } from './add-edit-transaction/add-edit-transaction.component';
 
 @Component({
   selector: 'accounting-transactions',
@@ -27,7 +28,9 @@ export class TransactionsComponent implements OnInit {
   }
 
   onAdd() {
-    
+    this.dialog.open(AddEditTransactionComponent, {
+      disableClose: true
+    });
   }
 
 }
