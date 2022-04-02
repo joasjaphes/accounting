@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppMenu } from '../../../app-menus';
 
 @Component({
   selector: 'accounting-page-layout',
@@ -9,6 +10,7 @@ export class PageLayoutComponent implements OnInit {
   @Input() title = '';
   @Input() icon;
   @Input() showAdd = false;
+  @Input() menus:AppMenu[] = [];
   @Output() add = new EventEmitter();
 
   // constructor() { }

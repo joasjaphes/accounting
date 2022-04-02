@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../shared/animations/router-animation';
 import { TableConfiguration } from '../../../shared/components/data-table/tableconfiguration';
 
 @Component({
@@ -14,6 +15,8 @@ export class AccountsListComponent implements OnInit {
       {name:'balance', label:'Account Balance'},
     ]
   } 
+
+  routeElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   constructor() { }
 

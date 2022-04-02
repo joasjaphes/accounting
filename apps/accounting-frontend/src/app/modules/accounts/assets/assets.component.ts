@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TableConfiguration } from '../../../shared/components/data-table/tableconfiguration';
-import { AccountCategory } from '../accounts-categories';
+import { AccountCategory, accounts, accountsSubmenus } from '../accounts-categories';
 import { AddEditAccountComponent } from '../add-edit-account/add-edit-account.component';
 import * as accountSelector from '../../../store/selectors/account.selectors';
 import { select, Store } from '@ngrx/store';
@@ -15,6 +15,7 @@ import { Account } from '../../../store/models/account.model';
   styleUrls: ['./assets.component.scss']
 })
 export class AssetsComponent implements OnInit {
+  menus = accountsSubmenus;
   accounts$: Observable<Account[]>;
   tableConfigurations: TableConfiguration = {
     tableColumns: [

@@ -1,5 +1,17 @@
+<div *ngIf = "menus.length" class="menu-list">
+    <ng-container *ngFor="let menu of menus">
+        <div class="menu-list-item" [routerLink]="menu.route" [routerLinkActive]="'active'">{{menu.title}}</div>
+    </ng-container>
+</div>
 <mat-toolbar class="header-content">
-    <img *ngIf="icon" src="../../../../assets/icons/{{icon}}" height="30px" width="30px">&nbsp;&nbsp;
-    <span>{{title}}</span>
+  <div [ngClass]="routeElements">
+    <img
+      *ngIf="icon"
+      src="../../../../assets/icons/{{ icon }}"
+      height="30px"
+      width="30px"
+    />&nbsp;&nbsp;
+    <span>{{ title }}</span>
+  </div>
 </mat-toolbar>
 <mat-divider></mat-divider>

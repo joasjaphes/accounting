@@ -28,6 +28,35 @@ export const accounts: AppMenu[] = [
     }
 ];
 
+
+export const accountsSubmenus: AppMenu[] = [
+    {
+        title: 'Assets',
+        route: '/accounts/assets',
+        icon: 'asset.png'
+    },
+    {
+        title: 'Liabilities',
+        route: '/accounts/liabilities',
+        icon: 'liability.png'
+    },
+    {
+        title: 'Share holder equity',
+        route: '/accounts/share-holder-equity',
+        icon: 'equity.png'
+    },
+    {
+        title: 'Expenses',
+        route: '/accounts/expenses',
+        icon: 'expenses.png'
+    },
+    {
+        title: 'Income',
+        route: '/accounts/income',
+        icon: 'revenue.png'
+    }
+];
+
 export enum AccountCategory {
     ASSET = 'asset',
     LIABILITY = 'liability',

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/cor
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { ROUTE_ANIMATIONS_ELEMENTS } from '../../animations/router-animation';
 import { TableConfiguration } from './tableconfiguration';
 @Component({
   selector: 'accounting-data-table',
@@ -22,7 +23,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     }
   };
   displayedColumns: string[];
-
+  routeElements = ROUTE_ANIMATIONS_ELEMENTS;
   constructor() {
     // this.dataSource = new MatTableDataSource([]);
   }
