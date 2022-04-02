@@ -1,1 +1,13 @@
-<accounting-page-layout [title]="'Transactions'" [icon]="'transaction-black.png'"></accounting-page-layout>
+<accounting-page-layout
+  [title]="'Transactions'"
+  [icon]="'transaction-black.png'"
+  [showAdd]="true"
+  (add)="onAdd()"
+>
+  <ng-container ngProjectAs="page-content">
+    <accounting-data-table
+      [tableConfiguration]="tableConfigurations"
+      [data]="transactions$ | async"
+    ></accounting-data-table>
+  </ng-container>
+</accounting-page-layout>

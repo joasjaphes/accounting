@@ -5,7 +5,7 @@
     [menus]="menus"
   ></accounting-page-header>
 </div>
-<div class="page-content">
+<div class="page-content" [ngClass]="routeElements">
   <ng-content select="page-content"></ng-content>
   <button
     style="position: absolute; bottom: 30px; right: 20px"

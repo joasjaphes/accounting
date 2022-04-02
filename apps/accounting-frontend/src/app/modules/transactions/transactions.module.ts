@@ -15,4 +15,6 @@ import { SharedModule } from '../../shared/shared.module';
     SharedModule
   ]
 })
-export class TransactionsModule { }
+export class TransactionsModule { 
+  
+}

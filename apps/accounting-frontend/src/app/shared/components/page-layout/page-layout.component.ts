@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AppMenu } from '../../../app-menus';
+import { ROUTE_ANIMATIONS_ELEMENTS } from '../../animations/router-animation';
 
 @Component({
   selector: 'accounting-page-layout',
@@ -10,13 +11,14 @@ export class PageLayoutComponent implements OnInit {
   @Input() title = '';
   @Input() icon;
   @Input() showAdd = false;
-  @Input() menus:AppMenu[] = [];
+  @Input() menus: AppMenu[] = [];
   @Output() add = new EventEmitter();
 
+  routeElements = ROUTE_ANIMATIONS_ELEMENTS;
   // constructor() { }
 
   ngOnInit(): void {
-    console.log
+    console.log;
   }
 
   onAdd() {
