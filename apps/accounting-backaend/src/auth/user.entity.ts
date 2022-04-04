@@ -8,7 +8,7 @@ export class User extends BaseEntity {
     id: number;
 
     @Column()
-    username:string;
+    username: string;
 
     @Column()
     firstName: string;
@@ -27,18 +27,18 @@ export class User extends BaseEntity {
 
     async validatePassword(password: string) {
         const hash = await bcrypt.hash(password, this.salt);
-        if(hash === this.password) {
+        if (hash === this.password) {
             return true;
-        }else {
+        } else {
             throw new UnauthorizedException('Wrong Password');
         }
     }
 
-    static async authenticateUser(username:string, password:string) {
-        const user = await this.findOne({username});
-        if(user) {
+    static async authenticateUser(username: string, password: string) {
+        const user = await this.findOne({ username });
+        if (user) {
             return await user.validatePassword(password);
-        }else {
+        } else {
             throw new UnauthorizedException('Wrong Username');
         }
     }
