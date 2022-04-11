@@ -1,0 +1,14 @@
+<accounting-dialog-layout [title]="'User Profile'">
+  <ng-container ngProjectAs="page-content">
+    <div align="center" class="mt-2">
+      <div
+      
+      >
+        <img class="profile-img" [src]="profilePictureUrl$ | async" height="100px" width="100px" alt=""  (click)="fileUploader.click()" [title]="'Click to change'" />
+      </div>
+      <div class="mt-2">
+          <input type="file" style="display: none;" (input)="onFile($event)" #fileUploader>
+      </div>
+    </div>
+  </ng-container>
+</accounting-dialog-layout>

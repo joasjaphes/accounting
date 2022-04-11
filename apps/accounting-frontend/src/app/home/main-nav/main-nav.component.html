@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <div class="d-flex" style="width: 100%">
+  <div class="d-flex" style="width: 100%; align-items: center;">
     <div>
       <span *ngIf="isHandset$ | async">
         <mat-icon
@@ -11,15 +11,17 @@
       </span>
       <span style="font-family: accounting-font"> Accounting Made Easy </span>
     </div>
-    <div class="ms-auto">
-      <mat-icon style="cursor: pointer" [matMenuTriggerFor]="menu"
+    <div class="ms-auto" style="cursor: pointer;"  [matMenuTriggerFor]="menu">
+      <!-- <mat-icon style="cursor: pointer" [matMenuTriggerFor]="menu"
         >person</mat-icon
-      >
-      <span>{{ currentUser?.firstName }}</span>
+      > -->
+      <img [src]="profilePictureUrl$ | async" alt="" class="dp">
+      <!-- <span>{{ currentUser?.firstName }}</span> -->
     </div>
     <div>
       <mat-menu #menu>
         <button mat-menu-item (click)="onLogout()">Logout</button>
+        <button mat-menu-item (click)="openProfile()">Profile</button>
       </mat-menu>
     </div>
   </div>

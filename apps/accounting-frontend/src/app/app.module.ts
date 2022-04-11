@@ -31,9 +31,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from './shared/shared.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent, UserProfileComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,

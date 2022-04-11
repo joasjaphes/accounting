@@ -10,6 +10,7 @@ export interface State extends EntityState<User> {
   loading: boolean;
   loaded: boolean;
   currentUser?: User;
+  profilePicture?:string;
 }
 
 export const adapter: EntityAdapter<User> = createEntityAdapter();
@@ -17,7 +18,8 @@ export const adapter: EntityAdapter<User> = createEntityAdapter();
 export const initialState: State = adapter.getInitialState({
   loading: false,
   loaded: false,
-  currentUser: undefined
+  currentUser: undefined,
+  profilePicture:'assets/icons/alt-profile.png'
 });
 
 export const userReducer = createReducer(
@@ -33,6 +35,12 @@ export const userReducer = createReducer(
       ...state,
       currentUser:undefined
     }
+  }),
+  on(userActions.setProfilePicture,(state,action) => {
+    return {
+      ...state,
+      profilePicture:action.url
+    }
   })
 );
 
@@ -43,6 +51,7 @@ export function reducer(state: State | undefined, action: Action) {
 export const getLoading = (state:State) => state.loading;
 export const getLoaded = (state:State) => state.loaded;
 export const getCurrentUser = (state:State) => state.currentUser;
+export const getCurrentUserProfilePicture = (state:State) => state.profilePicture
 
 export const {
   selectAll,
