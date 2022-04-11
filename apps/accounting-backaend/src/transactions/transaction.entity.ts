@@ -12,6 +12,6 @@ export class TransactionEntity extends BaseEntity {
     @Column()
     description: string;
 
-    @ManyToOne(() => User, (user) => user.id)
+    @ManyToOne(() => User, (user) => user.transaction, {eager:true})
     user: User;
 }

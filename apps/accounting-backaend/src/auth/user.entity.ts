@@ -1,6 +1,7 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn, Transaction } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { UnauthorizedException } from '@nestjs/common';
+import { TransactionEntity } from '../transactions/transaction.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -24,6 +25,9 @@ export class User extends BaseEntity {
 
     @Column()
     salt: string;
+
+    @OneToMany(() => TransactionEntity, transaction => transaction.user, { eager: false })
+    transaction: TransactionEntity;
 
     async validatePassword(password: string) {
         const hash = await bcrypt.hash(password, this.salt);
