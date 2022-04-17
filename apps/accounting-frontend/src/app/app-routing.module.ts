@@ -4,6 +4,7 @@ import { PreloadAllModules, Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Route[] = [
   {
@@ -44,6 +45,11 @@ const routes: Route[] = [
     path: 'login',
     component: LoginComponent
   },
+  {
+    path:'registration',
+    component:RegistrationComponent,
+    data: { state: "registration" }
+  }
 ];
 
 @NgModule({

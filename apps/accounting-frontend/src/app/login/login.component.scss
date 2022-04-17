@@ -1,6 +1,8 @@
-.content-container {
-    // background-image: url('../../assets/accounting-background.jpg');
+@import '../../styles-variables.scss';
 
+.content-container {
+    background-color: $accounting-primary-color;
+    object-fit: fill;
     height: 100vh;
     vertical-align: middle;
 }
@@ -11,16 +13,22 @@
     background-color: #2596be;
     color: white;
     font-weight: bold;
-    padding: 10px 10px;
+    // padding: 10px 10px;
     cursor: pointer;
 }
 
 .login-form-container {
-    // background-color: #2596be;
+    background-color: white;
+    opacity: 0.9;
     padding: 10px;
     // border-radius: 20px;
-    height: fit-content;
+    // height: 60vh;
+    padding: 50px 20px;
     width: 30%;
+}
+
+.field-content {
+    // align-items: center;
 }
 
 // .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -33,6 +41,7 @@
 }
 
 .mat-form-field {
+    align-items: center;
     input {
         padding-left: 5px;
     }

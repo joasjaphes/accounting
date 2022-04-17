@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { firstValueFrom, Observable, of } from 'rxjs';
 import { HttpClientService } from '../services/http-client.service';
+import { fadeIn } from '../shared/animations/router-animation';
 import { go } from '../store/actions/router.actions';
 import { addCurrentUser } from '../store/actions/user.actions';
 import { User } from '../store/models/user.model';
@@ -13,11 +14,13 @@ import { AppState } from '../store/reducers';
   selector: 'accounting-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  animations:[fadeIn],
   encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginError$: Observable<string>;
+
 
   constructor(private formBuilder: FormBuilder, private http: HttpClientService, private store: Store<AppState>) {
     this.loginForm = this.formBuilder.group({

@@ -8,6 +8,9 @@ export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column({ unique: true })
+    uid: string;
+
     @Column()
     username: string;
 
@@ -46,4 +49,8 @@ export class User extends BaseEntity {
             throw new UnauthorizedException('Wrong Username');
         }
     }
+}
+
+function unique() {
+    throw new Error('Function not implemented.');
 }

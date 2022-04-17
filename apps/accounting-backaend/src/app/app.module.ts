@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
 import { User } from '../auth/user.entity';
 import { TransactionsModule } from '../transactions/transactions.module';
+import { TransactionEntity } from '../transactions/transaction.entity';
 
 
 @Module({
@@ -19,7 +20,7 @@ import { TransactionsModule } from '../transactions/transactions.module';
       username: 'postgres',
       password: 'postgres',
       database: 'accounting',
-      entities: [User],
+      entities: [User,TransactionEntity],
       synchronize: true
     })
   ],
