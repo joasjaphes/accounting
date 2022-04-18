@@ -48,13 +48,17 @@
               <mat-form-field appearance="outline">
                 <mat-label>Confirm password</mat-label>
                 <input type="text" formControlName="confirmPass" matInput />
+                <mat-hint *ngIf="passwordMissmatch" style="color: red;">*Password not match</mat-hint>
               </mat-form-field>
             </div>
             <div class="col-sm-6">
               <button mat-raised-button  style="width: 100%; background-color: red; color: white; font-weight: bold;" type="button" [routerLink]="'/login'">Cancel</button>
             </div>
             <div class="col-sm-6">
-              <button mat-raised-button color="primary" style="width: 100%; font-weight: bold;" type="button">Submit</button>
+              <button mat-raised-button color="primary" style="width: 100%; font-weight: bold;" type="button" (click)="onSave()">Submit</button>
+            </div>
+            <div class="col-sm-12" *ngIf="loading" @fadeIn>
+              <accounting-loading></accounting-loading>
             </div>
           </div>
         </form>
