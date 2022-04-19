@@ -13,6 +13,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { DialogLayoutComponent } from './components/dialog-layout/dialog-layout.component';
 import { SaveComponent } from './components/save/save.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CustomFormComponent } from './components/custom-form/custom-form.component';
 
 
 
@@ -25,7 +26,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     DataTableComponent,
     DialogLayoutComponent,
     SaveComponent,
-    LoadingComponent
+    LoadingComponent,
+    CustomFormComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     DataTableComponent,
     DialogLayoutComponent,
     SaveComponent,
-    LoadingComponent
+    LoadingComponent,
+    CustomFormComponent
   ]
 })
 export class SharedModule { }
