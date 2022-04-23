@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <div class="d-flex" style="width: 100%; align-items: center;">
+  <div class="d-flex" style="width: 100%; align-items: center">
     <div>
       <span *ngIf="isHandset$ | async">
         <mat-icon
@@ -11,17 +11,31 @@
       </span>
       <span style="font-family: accounting-font"> Accounting Made Easy </span>
     </div>
-    <div class="ms-auto" style="cursor: pointer;"  [matMenuTriggerFor]="menu">
+    <div
+      class="ms-auto"
+      style="cursor: pointer; display: inline-flex; align-items: center"
+      [matMenuTriggerFor]="menu"
+    >
       <!-- <mat-icon style="cursor: pointer" [matMenuTriggerFor]="menu"
         >person</mat-icon
       > -->
-      <img [src]="profilePictureUrl$ | async" alt="" class="dp">
-      <!-- <span>{{ currentUser?.firstName }}</span> -->
+      <img [src]="profilePictureUrl$ | async" alt="" class="dp" />&nbsp;&nbsp;
+      <div
+        style="height: 50px; width: 1px; background-color: rgb(247, 247, 247)"
+      ></div>
+      &nbsp;&nbsp;
+      <span>{{ currentUser?.firstName }}&nbsp;{{ currentUser.surname }}</span>
     </div>
     <div>
       <mat-menu #menu>
-        <button mat-menu-item (click)="onLogout()">Logout</button>
-        <button mat-menu-item (click)="openProfile()">Profile</button>
+        <button mat-menu-item (click)="openProfile()" class="user-menus">
+          <mat-icon>account_circle</mat-icon>
+          Profile
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="onLogout()" class="user-menus">
+          <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
       </mat-menu>
     </div>
   </div>

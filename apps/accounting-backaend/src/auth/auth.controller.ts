@@ -1,11 +1,12 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { SignInDto } from './dto/signin.dto';
 import { SignupDto } from './dto/signup.dto';
+import { UserDto } from './dto/user.dto';
 import { User } from './user.entity';
 
-@Controller('auth')
+@Controller()
 export class AuthController {
     constructor(private authService: AuthService) { }
     @Post('signup')
@@ -16,5 +17,11 @@ export class AuthController {
     @Post('signin')
     signIn(@Body() signinDto: SignInDto) {
         return this.authService.signIn(signinDto);
+    }
+
+    @Put('users')
+    @UseGuards(AuthGuard)
+    updateUser(@Body() userDto: UserDto) {
+        return this.authService.updateUser(userDto);
     }
 }

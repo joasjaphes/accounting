@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.loginError$ = of();
     const credentials = this.loginForm.value;
     try {
-      const user: User = await firstValueFrom(this.http.post('api/auth/signin', credentials) as Observable<User>);
+      const user: User = await firstValueFrom(this.http.post('api/signin', credentials) as Observable<User>);
       console.log('User', user);
       localStorage.setItem('accounting-token', user.token ?? '');
       localStorage.setItem('accounting-user', JSON.stringify(user));

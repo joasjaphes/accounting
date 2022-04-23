@@ -49,8 +49,9 @@ export class MainNavComponent implements OnInit {
 
   openProfile() {
     this.dialog.open(UserProfileComponent, {
-      width:"60%",
-      height:"60%"
+      width:"80%",
+      height:"80%",
+      data:{user:this.currentUser}
     })
   }
 

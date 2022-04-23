@@ -8,6 +8,7 @@ import { Transaction } from '../../../store/models/transaction.model';
 import { AppState } from '../../../store/reducers';
 import * as moment from 'moment';
 import { TransactionService } from '../../../services/transaction.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'accounting-add-edit-transaction',
@@ -49,7 +50,7 @@ export class AddEditTransactionComponent implements OnInit {
         date: moment(formdata.date).format('YYYY-MM-DD'),
         description: formdata.description
       };
-      const response = await this.transactionService.saveTransaction(transactionPayload);
+      const response = await firstValueFrom(this.transactionService.saveTransaction(transactionPayload));
       console.log('response', response);
       this.store.dispatch(upsertTransaction({ transaction: transactionPayload }));
       this.onClose();

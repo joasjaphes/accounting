@@ -3,6 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import { atob } from 'buffer';
 import { SignInDto } from './dto/signin.dto';
 import { SignupDto } from './dto/signup.dto';
+import { UserDto } from './dto/user.dto';
 import { User } from './user.entity';
 import { UserRepository } from './user.repository';
 
@@ -10,7 +11,11 @@ import { UserRepository } from './user.repository';
 export class AuthService {
     constructor(private userRepository:UserRepository, private jwtService:JwtService) {}
     async signUp(signupDto:SignupDto):Promise<User> {
-        return this.userRepository.signUp(signupDto);
+        return await this.userRepository.signUp(signupDto);
+    }
+
+    async updateUser(userDto:UserDto) {
+        return await this.userRepository.updateUser(userDto);
     }
 
     async signIn(signInDto: SignInDto) {
