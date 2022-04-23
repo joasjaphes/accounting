@@ -30,7 +30,7 @@ export class User extends BaseEntity {
     salt: string;
 
     @OneToMany(() => TransactionEntity, transaction => transaction.user, { eager: false })
-    transaction: TransactionEntity;
+    transactions: TransactionEntity[];
 
     async validatePassword(password: string) {
         const hash = await bcrypt.hash(password, this.salt);
@@ -49,8 +49,13 @@ export class User extends BaseEntity {
             throw new UnauthorizedException('Wrong Username');
         }
     }
-}
 
-function unique() {
-    throw new Error('Function not implemented.');
+    static async getUser(username: string) {
+        const user = await this.findOne({ username });
+        if (user) {
+            return user;
+        } else {
+            return null;
+        }
+    }
 }

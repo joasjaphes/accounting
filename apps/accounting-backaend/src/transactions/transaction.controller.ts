@@ -1,12 +1,23 @@
-import { Controller, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '../auth/auth.guard';
+import { GetUser } from '../auth/get-user.decorator';
+import { User } from '../auth/user.entity';
+import { TransactionDto } from './dtos/transaction.dto';
+import { TransactionsService } from './transactions.service';
 
-@Controller('transaction')
+@Controller('transactions')
 export class TransactionController {
-    @Post('/add')
+    constructor(private transactionService: TransactionsService) { }
+
+    @Post('')
     @UseGuards(AuthGuard)
-    addTransaction(@Req() request) {
-        // console.log('Request', request.headers);
-        return 'Added'
+    async addTransaction(@Req() request, @Body() body: TransactionDto, @GetUser() user: User) {
+        return await this.transactionService.createTransaction(body, user);
+    }
+
+    @Get('')
+    @UseGuards(AuthGuard)
+    async getAll() {
+        return this.transactionService.getAllTransactions();
     }
 }
