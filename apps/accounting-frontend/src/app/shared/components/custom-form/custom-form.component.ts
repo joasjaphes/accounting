@@ -14,6 +14,8 @@ export class CustomFormComponent implements OnInit {
   @Input() formFields: FormConfig[] = [];
   @Output() save = new EventEmitter();
   @Output() cancel = new EventEmitter();
+  @Input() savingData = false;
+  @Input() loadingMessage = "Saving data..."
 
   constructor(private formBuilder: FormBuilder) { }
 

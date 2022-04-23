@@ -10,8 +10,9 @@ export class UserRepository extends Repository<User> {
     };
 
     async signUp(signupDto: SignupDto): Promise<User> {
-        const { firstName, surname, lastName, password, username } = signupDto;
+        const { id, firstName, surname, lastName, password, username } = signupDto;
         const user = new User();
+        user.uid = id;
         user.firstName = firstName;
         user.surname = surname;
         user.lastname = lastName;

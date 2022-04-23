@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { firstValueFrom } from 'rxjs';
+import { CommonService } from '../services/common.service';
+import { HttpClientService } from '../services/http-client.service';
 import { fadeIn, ROUTE_ANIMATIONS_ELEMENTS } from '../shared/animations/router-animation';
 import { FieldSize, FormConfig, InputType } from '../shared/components/custom-form/form-config';
 import { confirmPassword } from '../shared/validators/confirm-pass';
@@ -18,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   loading = false;
   routeElements = ROUTE_ANIMATIONS_ELEMENTS;
   formFields: FormConfig[] = [];
-  constructor(private store:Store<AppState>) { }
+  constructor(private store:Store<AppState>, private commonService:CommonService, private http:HttpClientService ) { }
 
   ngOnInit(): void {
     this.formFields = [
@@ -102,12 +105,26 @@ export class RegistrationComponent implements OnInit {
     ];
   }
 
-  onSave(formData) {
+  async onSave(formData)  {
+    this.loading = true;
     try {
       console.log('form data', formData)
+      const userPayload:User = {
+        id: this.commonService.makeId(),
+        firstName:formData['firstname'],
+        surname:formData['surname'],
+        lastName:formData['lastname'],
+        email:formData['email'],
+        username:formData['username'],
+        password:formData['password']
+      }
+      const response = await firstValueFrom(this.http.post('api/auth/signup', userPayload));
+      console.log('response', response);
+      this.onCancel();
     } catch (e) {
-
+      console.error('Failed to save user', e);
     }
+    this.loading = false;
   }
 
   onCancel() {
