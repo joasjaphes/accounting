@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { appMenus } from '../app-menus';
 import { go } from '../store/actions/router.actions';
+import { loadTransactions } from '../store/actions/transaction.actions';
 import { addCurrentUser, removeCurrentUser } from '../store/actions/user.actions';
 import { User } from '../store/models/user.model';
 import { AppState } from '../store/reducers';
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
     if (user) {
       this.store.dispatch(addCurrentUser({ user: JSON.parse(user) }));
       this.currentUser$ = this.store.pipe(select(userSelector.selectCurrentUser));
+      this.store.dispatch(loadTransactions());
     }
   }
 

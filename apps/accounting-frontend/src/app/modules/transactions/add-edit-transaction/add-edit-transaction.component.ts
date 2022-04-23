@@ -7,6 +7,7 @@ import { upsertTransaction } from '../../../store/actions/transaction.actions';
 import { Transaction } from '../../../store/models/transaction.model';
 import { AppState } from '../../../store/reducers';
 import * as moment from 'moment';
+import { TransactionService } from '../../../services/transaction.service';
 
 @Component({
   selector: 'accounting-add-edit-transaction',
@@ -21,7 +22,8 @@ export class AddEditTransactionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { currentTransaction: Transaction; },
     private dialog: MatDialog,
     private commonService: CommonService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private transactionService:TransactionService
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,8 @@ export class AddEditTransactionComponent implements OnInit {
         date: moment(formdata.date).format('YYYY-MM-DD'),
         description: formdata.description
       };
+      const response = await this.transactionService.saveTransaction(transactionPayload);
+      console.log('response', response);
       this.store.dispatch(upsertTransaction({ transaction: transactionPayload }));
       this.onClose();
     } catch (e) {

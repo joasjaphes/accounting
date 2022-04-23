@@ -13,8 +13,16 @@ export class HttpClientInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const url = environment.server + request.url;
-    console.log('url',request.url);
-    const req = request.clone({url});
+    const token = localStorage.getItem('accounting-token');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    console.log('headers', request.headers);
+    console.log('url', request.url);
+    const req = request.clone({
+      url,
+      headers: request.headers.set('Authorization', `Bearer ${token}`)
+    });
     return next.handle(req);
   }
 }

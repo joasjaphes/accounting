@@ -9,7 +9,11 @@ export class HttpClientService {
 
   constructor(private http:HttpClient) { }
 
-  post(url:string, data:unknown):Observable<unknown> {
+  post(url:string, data:any):Observable<any> {
     return this.http.post(url, data);
+  }
+
+  get(url:string):Observable<any> {
+    return this.http.get(url);
   }
 }

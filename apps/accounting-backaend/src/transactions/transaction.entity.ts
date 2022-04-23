@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../auth/user.entity';
 
-@Entity()
+@Entity({name:'transaction'})
 export class TransactionEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
