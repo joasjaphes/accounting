@@ -91,3 +91,20 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: gray; 
 }
+
+.accounting-btn {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: red;
+}
+
+.save-btn {
+  background-color: $accounting-primary-color;
+}

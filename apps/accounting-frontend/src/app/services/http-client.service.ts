@@ -13,6 +13,10 @@ export class HttpClientService {
     return this.http.post(url, data);
   }
 
+  put(url:string, data:any):Observable<any> {
+    return this.http.put(url, data);
+  }
+
   get(url:string):Observable<any> {
     return this.http.get(url);
   }

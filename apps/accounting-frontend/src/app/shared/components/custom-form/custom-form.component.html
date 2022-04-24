@@ -2,6 +2,9 @@
   <div class="row">
     <ng-container *ngFor="let field of formFields">
       <div [class]="field.fieldSize">
+        <div *ngIf="field.label">
+          <span class="text-muted">{{field.label}}</span>
+        </div>
         <div
           class="input-field mat-elevation-z3 d-flex"
           [ngClass]="{ 'input-error-field': hasError(field) }"

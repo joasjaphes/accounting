@@ -13,6 +13,7 @@ export interface FormConfig {
     borderColor?:string;
     errors?:{key:string,message:string}[];
     icon?:string;
+    label?:string;
 }
 
 export interface InputOption {

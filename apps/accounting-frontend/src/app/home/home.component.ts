@@ -28,8 +28,10 @@ export class HomeComponent implements OnInit {
       this.store.dispatch(go({ route: { path: ['login'] } }));
     }
     if (user) {
-      this.store.dispatch(addCurrentUser({ user: JSON.parse(user) }));
+      const userPayload:User = JSON.parse(user);
+      this.store.dispatch(addCurrentUser({ user: userPayload }));
       this.currentUser$ = this.store.pipe(select(userSelector.selectCurrentUser));
+      this.store.dispatch(setProfilePicture({ url: userPayload.profilePhoto }));
       this.store.dispatch(loadTransactions());
     }
   }
@@ -42,3 +44,7 @@ export class HomeComponent implements OnInit {
   }
 
 }
+function setProfilePicture(arg0: { url: any; }): any {
+  throw new Error('Function not implemented.');
+}
+
