@@ -7,7 +7,7 @@ import { TableConfiguration } from './tableconfiguration';
 @Component({
   selector: 'accounting-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.css']
+  styleUrls: ['./data-table.component.scss']
 })
 export class DataTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -18,7 +18,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     tableColumns: [],
     actionIcons: {
       edit: false,
-      delete: false,
+      isDelete: false,
       more: false
     }
   };
@@ -29,7 +29,8 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.displayedColumns = ['position', ...this.tableConfiguration.tableColumns.map(column => column.name)];
+    this.initData();
+    // this.displayedColumns = ['position', ...this.tableConfiguration.tableColumns.map(column => column.name)];
   }
 
   ngOnChanges() {
@@ -42,6 +43,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
   initData() {
     this.displayedColumns = ['position', ...this.tableConfiguration.tableColumns.map(column => column.name)];
+    const { edit, isDelete, more } = this.tableConfiguration.actionIcons ?? { edit: false, isDelete: false, more: false };
+    if (edit || isDelete || more) {
+      this.displayedColumns.push('actions');
+    }
+    console.log('displayed columns', this.displayedColumns);
     this.dataSource = new MatTableDataSource(this.data);
     console.log('data', this.data);
     this.dataSource.sort = this.sort;

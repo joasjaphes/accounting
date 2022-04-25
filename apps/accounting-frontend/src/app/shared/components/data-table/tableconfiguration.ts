@@ -1,6 +1,6 @@
 export interface TableConfiguration {
     tableColumns: TableColumn[];
-    actionIcons?: { [key: string]: boolean; };
+    actionIcons?: { edit:boolean,isDelete:boolean,more:boolean};
 }
 
 export interface TableColumn {

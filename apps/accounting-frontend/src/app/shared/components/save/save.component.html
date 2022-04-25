@@ -3,13 +3,13 @@
     <button
       type="button"
       mat-flat-button
-      class="cancel-btn"
+      class="accounting-btn cancel-btn"
       (click)="onCancel()"
     >
-      <i class="fa fa-times" aria-hidden="true"></i>&nbsp; Cancel</button
+      <mat-icon>close</mat-icon>&nbsp; Cancel</button
     >&nbsp;&nbsp;
-    <button mat-raised-button class="save-btn" (click)="onSave(confirmFirst)">
-      <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save
+    <button mat-raised-button class="accounting-btn save-btn" (click)="onSave(confirmFirst)">
+      <mat-icon>save</mat-icon>&nbsp; Save
     </button>
   </ng-container>
   <ng-container *ngIf="confirming">

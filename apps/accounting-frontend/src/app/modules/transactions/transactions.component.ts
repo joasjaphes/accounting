@@ -19,7 +19,12 @@ export class TransactionsComponent implements OnInit {
     tableColumns: [
       { name: 'date', label: 'Transaction date' },
       { name: 'description', label: 'Description' },
-    ]
+    ],
+    actionIcons: {
+      edit: true,
+      isDelete: true,
+      more: true
+    }
   };
   constructor(private dialog: MatDialog, private store: Store<AppState>) { }
 

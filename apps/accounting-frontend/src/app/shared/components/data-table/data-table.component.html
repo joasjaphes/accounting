@@ -22,8 +22,23 @@
         <td mat-cell *matCellDef="let row">{{ row[column.name] }}</td>
       </ng-container>
 
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="table-icons">
+            <mat-icon *ngIf="tableConfiguration?.actionIcons?.edit">edit</mat-icon>&nbsp;&nbsp;
+            <mat-icon *ngIf="tableConfiguration?.actionIcons?.isDelete" style="color: red;">delete</mat-icon>&nbsp;&nbsp;
+            <mat-icon *ngIf="tableConfiguration?.actionIcons?.more">more_vert</mat-icon>
+          </div>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="routeElements"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [ngClass]="routeElements"
+      ></tr>
     </table>
 
     <mat-paginator
@@ -63,15 +78,24 @@
         ></td>
       </ng-container>
 
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          [attr.colspan]="tableConfiguration.tableColumns.length"
+        ></td>
+      </ng-container>
+
       <ng-container matColumnDef="nodata">
         <td
           mat-footer-cell
           *matFooterCellDef
           [attr.colspan]="displayedColumns.length"
-          style="text-align: center;"
+          style="text-align: center"
         >
-        <span>No data</span>
-      </td>
+          <span>No data</span>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
