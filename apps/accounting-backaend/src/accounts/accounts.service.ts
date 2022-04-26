@@ -13,6 +13,9 @@ export class AccountsService {
             account.uid = accountPayload.id;
             account.balance = accountPayload.balance;
             account.category = accountPayload.category;
+            account.name = accountPayload.name;
+            account.description = accountPayload.description;
+            account.status = accountPayload.status;
             const accountResponse = await this.accountRepository.saveAccount(account);
             return this.sanitizeAccount(accountResponse);
         } catch (e) {
@@ -33,7 +36,10 @@ export class AccountsService {
         return {
             id: account.uid,
             balance: account.balance,
-            category: account.category
+            category: account.category,
+            name: account.name,
+            description: account.description,
+            status: account.status
         };
     }
 }

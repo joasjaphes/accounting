@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 export class HttpClientInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const url = environment.server + request.url;
+    const url = environment.server + 'api/' + request.url;
     const token = localStorage.getItem('accounting-token');
     const headers = {
       Authorization: `Bearer ${token}`

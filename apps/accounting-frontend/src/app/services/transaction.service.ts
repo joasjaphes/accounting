@@ -7,12 +7,12 @@ import { HttpClientService } from './http-client.service';
   providedIn: 'root'
 })
 export class TransactionService {
-
+  path = 'transactions';
   constructor(private http: HttpClientService) { }
 
   saveTransaction(transactionPayload: Transaction) {
     try {
-      return  this.http.post('api/transactions', transactionPayload);
+      return  this.http.post(this.path, transactionPayload);
     } catch (e) {
       throw e;
     }
@@ -20,7 +20,7 @@ export class TransactionService {
 
    getAllTransactions(){
     try {
-      return  this.http.get('api/transactions');
+      return  this.http.get(this.path);
     } catch (e) {
       throw e;
     }

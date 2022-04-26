@@ -2,7 +2,7 @@
   <ng-container ngProjectAs="page-content">
     <form [formGroup]="accountForm">
       <div class="row m-2">
-        <div class="col-sm-6">
+        <div class="col-sm-6" @fadeIn>
           <mat-form-field>
             <mat-label>Account Name</mat-label>
             <input
@@ -13,7 +13,7 @@
             />
           </mat-form-field>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" @fadeIn>
           <mat-form-field>
             <mat-label>Account Description</mat-label>
             <input
@@ -24,7 +24,7 @@
             />
           </mat-form-field>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" @fadeIn>
           <mat-form-field>
             <mat-label>Account Balance</mat-label>
             <input
@@ -35,7 +35,7 @@
             />
           </mat-form-field>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" @fadeIn>
           <mat-form-field>
             <mat-label>Account Status</mat-label>
             <mat-select formControlName="status">
@@ -44,11 +44,14 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12" *ngIf="!loading" @fadeIn>
           <accounting-save
             (cancel)="onClose()"
             (save)="onSave()"
           ></accounting-save>
+        </div>
+        <div class="col-sm-12" *ngIf="loading" @fadeIn>
+          <accounting-loading message="Saving data..."></accounting-loading>
         </div>
       </div>
     </form>

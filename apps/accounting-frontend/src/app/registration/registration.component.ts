@@ -119,7 +119,7 @@ export class RegistrationComponent implements OnInit {
         password:formData['password'],
         phoneNumber:formData['phoneNumber']
       }
-      const response = await firstValueFrom(this.http.post('api/signup', userPayload));
+      const response = await firstValueFrom(this.http.post('signup', userPayload));
       console.log('response', response);
       this.onCancel();
     } catch (e) {
