@@ -23,6 +23,7 @@ services:
     volumes:
       - ./:/app
     restart: always
+    # network_mode: host
     ports:
       - 3000:3000
     depends_on:
@@ -39,8 +40,9 @@ services:
     volumes:
       - ./:/app
     restart: always
-    ports:
-      - 4200:4200
+    # ports:
+    #   - "4000:4200"
+    network_mode: host
     depends_on:
       - accounting-api
 volumes:
