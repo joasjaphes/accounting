@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "start:frontend": "nx serve accounting-frontend && npx tailwindcss -i ./apps/accounting-frontend/src/styles.scss -o ./dist/accounting-frontend/tailwind.css --watch",
-    "build:frontend": "nx build accounting-frontend"
+    "start:backend": "nx serve accounting-backend",
+    "build:frontend": "nx build accounting-frontend",
+    "build:backend": "nx build accounting-backend"
   },
   "private": true,
   "dependencies": {
