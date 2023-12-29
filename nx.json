@@ -79,7 +79,8 @@
     "@nx/angular:component": {
       "style": "css"
     },
-    "@nx/nest:controller": {}
+    "@nx/nest:controller": {},
+    "@nx/nest:service": {}
   },
   "nxCloudAccessToken": "ZTU0OGE2MGQtMTk3ZS00NDhlLWI4NjItZTUxYWIwMDg5MTRjfHJlYWQtd3JpdGU="
 }
