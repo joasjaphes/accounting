@@ -1,11 +1,13 @@
 {
-  "extends": "./tsconfig.json",
+  // "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../dist/apps/accounting-backend",
     "module": "commonjs",
     "types": ["node"],
     "emitDecoratorMetadata": true,
-    "target": "es2021"
+    "experimentalDecorators": true,
+    "target": "es2021",
+    "baseUrl": "."
   },
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
   "include": ["src/**/*.ts"]

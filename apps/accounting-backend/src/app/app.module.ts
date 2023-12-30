@@ -16,8 +16,9 @@ import { Company } from './company/company.entity';
       username: 'accounting',
       password: 'accounting',
       database: 'accounting',
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      entities: [Company],
+      // entities: [Company],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Company]),
@@ -25,4 +26,8 @@ import { Company } from './company/company.entity';
   controllers: [AppController, CompanyController],
   providers: [AppService, CompanyService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log('App Module Loaded', __dirname + '/../**/*.entity{.ts,.js');
+  }
+}
