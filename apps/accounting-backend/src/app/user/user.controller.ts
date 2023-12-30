@@ -8,6 +8,7 @@ import {
 import { UserService } from './user.service';
 import { UserDTO } from './user.dto';
 import { isPasswordValid } from 'src/shared/constants';
+import { CredentialDTO } from './credentials.dto';
 
 @Controller('users')
 export class UserController {
@@ -28,5 +29,10 @@ export class UserController {
     } else {
       return this.userService.createUser(user);
     }
+  }
+
+  @Post('/signin')
+  async login(@Body() credentials: CredentialDTO) {
+    return await this.userService.login(credentials);
   }
 }

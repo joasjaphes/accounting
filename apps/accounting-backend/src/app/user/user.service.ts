@@ -1,9 +1,10 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { UserDTO } from './user.dto';
 import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CredentialDTO } from './credentials.dto';
 @Injectable()
 export class UserService {
   constructor(@InjectRepository(User) private repository: Repository<User>) {}
@@ -29,6 +30,21 @@ export class UserService {
       console.error('Failed to get users', e);
       Logger.error('Failed to get users', e);
       throw e;
+    }
+  }
+
+  async login(credentials: CredentialDTO): Promise<CredentialDTO> {
+    try {
+      const { username, password } = credentials;
+      const hashedPassword = await this.getHashedPassword(password);
+      return await this.repository.findOne({
+        where: { username, password: hashedPassword.password },
+      });
+    } catch (e) {
+      Logger.error('Failed to login', e);
+      throw new UnauthorizedException({
+        message: 'Wrong credentials provided',
+      });
     }
   }
 
