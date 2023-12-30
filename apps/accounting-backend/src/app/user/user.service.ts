@@ -21,6 +21,17 @@ export class UserService {
     }
   }
 
+  async getAllUsers(): Promise<UserDTO[]> {
+    try {
+      const users: User[] = await this.repository.find();
+      return users.map((user) => this.getUserDTOFromUSer(user));
+    } catch (e) {
+      console.error('Failed to get users', e);
+      Logger.error('Failed to get users', e);
+      throw e;
+    }
+  }
+
   async getHashedPassword(
     password: string
   ): Promise<{ password: string; salt: string }> {
@@ -54,5 +65,17 @@ export class UserService {
       Logger.error('Failed to get user payload from DTO', e);
       throw e;
     }
+  }
+
+  getUserDTOFromUSer(user: User): UserDTO {
+    return {
+      id: user.uid,
+      firstName: user.firstName,
+      surname: user.surname,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      role: user.role,
+      username: user.username,
+    };
   }
 }

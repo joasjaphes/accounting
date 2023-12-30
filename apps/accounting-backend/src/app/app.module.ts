@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { CompanyController } from './company/company.controller';
 import { CompanyService } from './company/company.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Company } from './company/company.entity';
+import { entities } from 'src/database/entities';
 
 @Module({
   imports: [
@@ -16,12 +16,10 @@ import { Company } from './company/company.entity';
       username: 'accounting',
       password: 'accounting',
       database: 'accounting',
-      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      // entities: [Company],
+      entities,
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Company]),
+    TypeOrmModule.forFeature([...entities]),
   ],
   controllers: [AppController, CompanyController],
   providers: [AppService, CompanyService],
