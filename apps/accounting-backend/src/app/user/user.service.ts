@@ -5,15 +5,21 @@ import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CredentialDTO } from './credentials.dto';
+import { CompanyService } from '../company/company.service';
 @Injectable()
 export class UserService {
-  constructor(@InjectRepository(User) private repository: Repository<User>) {}
+  constructor(
+    @InjectRepository(User) private repository: Repository<User>,
+    private companyService: CompanyService
+  ) {}
 
   async createUser(userObject: UserDTO): Promise<User> {
     try {
       const userPayload: User = await this.getUserPayloadFromDTO(userObject);
       const createdUser: User = await this.repository.save(userPayload);
       Logger.log('User Created: ' + JSON.stringify(createdUser));
+      delete createdUser.password;
+      delete createdUser.salt;
       return createdUser;
     } catch (e) {
       console.error(e);
@@ -65,6 +71,10 @@ export class UserService {
   async getUserPayloadFromDTO(user: UserDTO): Promise<User> {
     try {
       const hashedPassword = await this.getHashedPassword(user.password);
+      const company = await this.companyService.getCompanyByUId(user.companyId);
+      const companyPayload = await this.companyService.getCompanyPayloadFromDTO(
+        company
+      );
       const userPayload: User = this.repository.create();
       userPayload.uid = user.id;
       userPayload.firstName = user.firstName;
@@ -75,6 +85,7 @@ export class UserService {
       userPayload.password = hashedPassword.password;
       userPayload.salt = hashedPassword.salt;
       userPayload.role = user.role;
+      userPayload.company = companyPayload;
       return userPayload;
     } catch (e) {
       console.error(e);
@@ -92,6 +103,8 @@ export class UserService {
       phoneNumber: user.phoneNumber,
       role: user.role,
       username: user.username,
+      companyId: user.company.uid,
+      company: user.company,
     };
   }
 }

@@ -1,8 +1,8 @@
-import { Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClientService } from './http-client.service';
 import { firstValueFrom } from 'rxjs';
 
-@Inject({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' })
 export class RegistrationService {
   constructor(private http: HttpClientService) {}
 

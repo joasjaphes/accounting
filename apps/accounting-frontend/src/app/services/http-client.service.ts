@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject } from '@angular/core';
+import {  Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment.config';
 
-@Inject({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' })
 export class HttpClientService {
   environment = environment;
   constructor(private http: HttpClient) {}

@@ -74,9 +74,9 @@ export class CompanyService {
     });
     const companyPayload: Company = savedCompany ?? this.repository.create();
     companyPayload.name = company.name;
-    companyPayload.description = company.description;
+    companyPayload.description = company.description ?? '';
     companyPayload.uid = company.id;
-    companyPayload.address = company.address;
+    companyPayload.address = company.address ?? '';
     return companyPayload;
   }
 

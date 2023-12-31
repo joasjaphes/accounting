@@ -6,12 +6,14 @@ import { CompanyController } from './company/company.controller';
 import { CompanyService } from './company/company.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { entities } from 'src/database/entities';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'accounting-database',
+      host: 'localhost',
       port: 5432,
       username: 'accounting',
       password: 'accounting',
@@ -21,8 +23,8 @@ import { entities } from 'src/database/entities';
     }),
     TypeOrmModule.forFeature([...entities]),
   ],
-  controllers: [AppController, CompanyController],
-  providers: [AppService, CompanyService],
+  controllers: [AppController, CompanyController, UserController],
+  providers: [AppService, CompanyService, UserService],
 })
 export class AppModule {
   constructor() {

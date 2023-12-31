@@ -1,3 +1,5 @@
+import { Company } from "../company/company.entity";
+
 export interface UserDTO {
     id:string;
     firstName:string;
@@ -7,4 +9,6 @@ export interface UserDTO {
     username:string;
     password?:string;
     role:string;
+    companyId?:string;
+    company?:Company
 }

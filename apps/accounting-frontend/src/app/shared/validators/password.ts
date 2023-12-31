@@ -19,7 +19,12 @@ export const confirmPasswordValidator = (control: AbstractControl) => {
   if (!password || !confirmPassword) {
     return null;
   }
-  return password.value === confirmPassword.value
-    ? null
-    : { passwordsDontMatch: true };
+  const valid = password.value === confirmPassword.value;
+  if (!valid) {
+    confirmPassword.setErrors({ passwordsDontMatch: true });
+  }else {
+    confirmPassword.setErrors({ passwordsDontMatch: false });
+  }
+  console.log(valid);
+  return valid ? null : { passwordsDontMatch: true };
 };
