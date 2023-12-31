@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { Form, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+  confirmPasswordValidator,
+  passwordValidator,
+} from '../shared/validators/password';
 
 @Component({
   selector: 'app-registration',
@@ -21,8 +25,8 @@ export class RegistrationComponent implements OnInit {
       email: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       companyName: ['', Validators.required],
-      password: '',
-      confirmPassword: '',
+      password: ['', [Validators.required, passwordValidator]],
+      confirmPassword: ['', [Validators.required, confirmPasswordValidator]],
     });
   }
 

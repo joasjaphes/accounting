@@ -24,3 +24,7 @@ html {
     margin-bottom: 0px;
     width: 100%;
 }
+
+.mat-mdc-form-field-error {
+    font-weight: bold;
+}
