@@ -19,9 +19,9 @@ export class User extends BaseEntity {
   surname: string;
   @Column({ nullable: false, length: 50 })
   email: string;
-  @Column({ nullable: false, length: 50 })
+  @Column({ nullable: false, length: 50,unique: true })
   phoneNumber: string;
-  @Column({ nullable: false, length: 50, unique: true })
+  @Column({ nullable: false, length: 50 })
   username: string;
   @Column({ nullable: false})
   password: string;
