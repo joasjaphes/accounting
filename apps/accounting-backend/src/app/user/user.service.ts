@@ -39,18 +39,26 @@ export class UserService {
     }
   }
 
-  async login(credentials: CredentialDTO): Promise<CredentialDTO> {
+  async login(credentials: CredentialDTO): Promise<UserDTO> {
     try {
       const { username, password } = credentials;
-      const hashedPassword = await this.getHashedPassword(password);
-      return await this.repository.findOne({
-        where: { username, password: hashedPassword.password },
+      const user = await this.repository.findOne({
+        where: { username },
       });
+      console.log('User', user);
+      if (user) {
+        const passWordValid = await user.validatePassword(password);
+        if (passWordValid) {
+          return this.getUserDTOFromUSer(user);
+        } else {
+          throw new UnauthorizedException('Wrong password provided');
+        }
+      } else {
+        throw new UnauthorizedException('Wrong username provided');
+      }
     } catch (e) {
       Logger.error('Failed to login', e);
-      throw new UnauthorizedException({
-        message: 'Wrong credentials provided',
-      });
+      throw e;
     }
   }
 

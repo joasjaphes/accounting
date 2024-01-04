@@ -8,6 +8,8 @@
                 </mat-form-field>
                 <mat-error *ngIf="touched('email') && hasError('email','required')">**This
                     field is required</mat-error>
+                <mat-error *ngIf="touched('email') && hasError('email','wrong')">**This
+                    email does not exist</mat-error>
             </div>
             <div class="w-full mt-2">
                 <mat-form-field appearance="outline">
@@ -15,6 +17,7 @@
                 </mat-form-field>
                 <mat-error *ngIf="touched('password') && hasError('password','required')">**This
                     field is required</mat-error>
+                <mat-error *ngIf="touched('password') && hasError('password','wrong')">**Wrong password</mat-error>
             </div>
             <div class="w-full mt-2">
                 <button
