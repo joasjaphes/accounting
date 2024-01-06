@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { menus } from './menus';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   userName = '';
+  menus = menus;
   ngOnInit(): void {
-      const user = JSON.parse(localStorage.getItem('accounting-user'));
-      this.userName = `${user.firstName} ${user.surname}`;
+    const user = JSON.parse(localStorage.getItem('accounting-user'));
+    this.userName = `${user.firstName} ${user.surname}`;
   }
 }
