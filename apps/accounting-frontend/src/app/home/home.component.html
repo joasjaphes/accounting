@@ -13,9 +13,9 @@
                             <mat-panel-title
                                 style="color:white; font-family:'custom-font'; font-weight: bold;">{{menu.name}}</mat-panel-title>
                         </mat-expansion-panel-header>
-                        <div class="w-full divide-y divide-gray-700">
+                        <div class="w-full divide-y divide-gray-700" >
                             <div class="font-bold w-full p-4 cursor-pointer flex items-center"
-                                *ngFor="let submenu of menu.children"  >
+                                *ngFor="let submenu of menu.children" [routerLink]="submenu.path" routerLinkActive="active-menu" >
                                 <span style="font-family:'custom-font'">{{submenu.name}}</span>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
         </div>
     </mat-drawer>
     <mat-drawer-content>
-        <nav class="divide-gray-200 h-1/4">
+        <nav class="divide-gray-200 h-1/9">
             <div class="w-full p-4 flex items-center">
                 <div class="w-1/2 flex items-center">
                     <span class="flex items-center cursor-pointer">
@@ -55,7 +55,7 @@
                 </button>
             </mat-menu>
         </nav>
-        <div class="content w-full p-4 h-3/4">
+        <div class="content w-full p-4 h-8/9">
             <router-outlet></router-outlet>
         </div>
     </mat-drawer-content>

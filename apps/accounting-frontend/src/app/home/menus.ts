@@ -13,7 +13,7 @@ export const menus: Menu[] = [
       {
         name: 'Accounts',
         icon: 'account_balance',
-        path: '/accounts',
+        path: 'general-ledger/accounts',
       },
       {
         name: 'Journals',

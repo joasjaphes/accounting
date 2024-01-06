@@ -14,6 +14,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    children:[
+      {
+        path:'',
+        redirectTo:'general-ledger/accounts',
+        pathMatch:'full'
+      },
+      {
+        path:'general-ledger',
+        loadChildren: () => import('./modules/general-ledger/general-ledger.module').then(m => m.GeneralLedgerModule)
+      }
+    ]
   },
   {
     path: 'registration',
