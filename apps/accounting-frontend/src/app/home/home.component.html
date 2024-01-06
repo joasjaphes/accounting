@@ -1,11 +1,13 @@
 <mat-drawer-container class="h-full w-full">
-    <mat-drawer mode="side" opened class="h-screen w-1/6 p-4" #drawer>
-        drawer
+    <mat-drawer mode="side" opened class="h-screen w-1/6" #drawer>
+        <div class="h-screen w-full p-4 bg-primary text-white">
+            drawer
+        </div>
         <!-- <div class="h-screen">
             drawer
         </div> -->
     </mat-drawer>
-    <mat-drawer-content>
+    <mat-drawer-content >
         <nav class="divide-gray-200 h-1/4">
             <div class="w-full p-4 flex items-center">
                 <div class="w-1/2 flex items-center">
@@ -17,10 +19,24 @@
                     <span class="font-bold items-center flex cursor-pointer">
                         <mat-icon>person</mat-icon>&nbsp;
                         {{userName}}&nbsp;
-                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        <mat-icon [matMenuTriggerFor]="userMenu">keyboard_arrow_down</mat-icon>
                     </span>
                 </div>
             </div>
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
         </nav>
         <div class="content w-full p-4 h-3/4">
             <router-outlet></router-outlet>
