@@ -1,0 +1,29 @@
+<mat-drawer-container class="h-full w-full">
+    <mat-drawer mode="side" opened class="h-screen w-1/6 p-4" #drawer>
+        drawer
+        <!-- <div class="h-screen">
+            drawer
+        </div> -->
+    </mat-drawer>
+    <mat-drawer-content>
+        <nav class="divide-gray-200 h-1/4">
+            <div class="w-full p-4 flex items-center">
+                <div class="w-1/2 flex items-center">
+                    <span class="flex items-center cursor-pointer">
+                        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+                    </span>
+                </div>
+                <div class="w-1/2 flex justify-end items-center">
+                    <span class="font-bold items-center flex cursor-pointer">
+                        <mat-icon>person</mat-icon>&nbsp;
+                        {{userName}}&nbsp;
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <div class="content w-full p-4 h-3/4">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
