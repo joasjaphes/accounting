@@ -1,6 +1,6 @@
 <div class="w-full">
     <div class="w-full flex items-center justify-end">
-        <button class="add-button flex items-center">
+        <button class="add-button flex items-center" (click)="onAdd()" *ngIf="showAddButton">
             <mat-icon>add</mat-icon>
             <span>{{addButtonText}}</span>
         </button>

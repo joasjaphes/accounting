@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -33,11 +35,14 @@ export type ColumType = 'text' | 'number' | 'date' | 'currency';
 export class DataTableComponent implements OnInit, OnChanges {
   @Input() tableData = [];
   @Input() addButtonText = 'Add';
+  @Input() showAddButton = true;
   @Input() tableConfiguration: TableConfiguration = {
     columns: [],
     actions: {},
-  };
+  }
+  @Output() add = new EventEmitter();
   displayedColumns: string[] = [];
+
   constructor() {}
 
   ngOnInit(): void {
@@ -56,5 +61,9 @@ export class DataTableComponent implements OnInit, OnChanges {
     );
     this.displayedColumns.unshift('serial#');
     this.displayedColumns.push('actions');
+  }
+
+  onAdd() {
+    this.add.emit();
   }
 }

@@ -1,6 +1,13 @@
 <app-page-layout [title]="'Accounts'"
-    description="Manage your business chart of accounts. Create, modify and deactivate accounts.">
+    description="Manage your business chart of accounts. Create, modify and deactivate accounts."
+    [viewDetails]="viewDetails" [formTitle]="formTitle" [formDescription]="formDescription" (closeForm)="closeForm()">
     <ng-container ngProjectAs="main">
-        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="accounts" addButtonText="New account"></app-data-table>
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="accounts" [showAddButton]="!viewDetails"
+            addButtonText="New account" (add)="addAccount()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <div>
+            New form
+        </div>
     </ng-container>
 </app-page-layout>

@@ -27,8 +27,20 @@ export class AccountsComponent implements OnInit{
     ]
   }
   accounts = [];
+  viewDetails = false;
+  formTitle = 'Add Account';
+  formDescription = 'Add a new account';
   constructor() {}
   ngOnInit(): void {
     console.log('AccountsComponent initialized');
+  }
+
+  addAccount() {
+    this.viewDetails = true;
+    console.log('Add Account');
+  }
+
+  closeForm() {
+    this.viewDetails = false;
   }
 }

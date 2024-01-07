@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+
 
 const modules = [
   MatFormFieldModule,
@@ -17,6 +19,7 @@ const modules = [
   MatMenuModule,
   MatExpansionModule,
   MatTableModule,
+  MatCardModule,
 ];
 
 @NgModule({
