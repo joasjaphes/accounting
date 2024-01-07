@@ -3,14 +3,21 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
 
-
-
-
-const modules = [MatFormFieldModule, FormsModule, MatInputModule, ReactiveFormsModule, MatIconModule,MatMenuModule, MatExpansionModule];
+const modules = [
+  MatFormFieldModule,
+  FormsModule,
+  MatInputModule,
+  ReactiveFormsModule,
+  MatIconModule,
+  MatMenuModule,
+  MatExpansionModule,
+  MatTableModule,
+];
 
 @NgModule({
   declarations: [],

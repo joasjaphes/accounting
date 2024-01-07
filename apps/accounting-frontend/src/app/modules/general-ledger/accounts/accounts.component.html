@@ -1,1 +1,6 @@
-<p>accounts works!</p>
+<app-page-layout [title]="'Accounts'"
+    description="Manage your business chart of accounts. Create, modify and deactivate accounts.">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="accounts" addButtonText="New account"></app-data-table>
+    </ng-container>
+</app-page-layout>

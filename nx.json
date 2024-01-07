@@ -80,6 +80,7 @@
       "style": "css"
     },
     "@nx/angular:service": {},
+    "@nx/angular:table": {},
     "@nx/nest:controller": {},
     "@nx/nest:service": {}
   },

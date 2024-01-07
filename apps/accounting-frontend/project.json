@@ -2,7 +2,8 @@
   "name": "accounting-frontend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "org",
+  "prefix": "app",
+  "standalone":false,
   "sourceRoot": "apps/accounting-frontend/src",
   "tags": [],
   "targets": {
