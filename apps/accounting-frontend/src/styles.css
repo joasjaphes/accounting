@@ -23,10 +23,18 @@ html {
 .mat-mdc-form-field {
     margin-bottom: 0px;
     width: 100%;
-    font-family: "custom-font";
+    font-family: "custom-font" !important;
 }
 
 .mat-mdc-form-field-error {
     font-weight: bold;
+    font-family: 'custom-font';
+}
+
+.mdc-notched-outline__notch {
+    border-right: none;
+}
+
+.mat-mdc-floating-label, .mdc-floating-label {
     font-family: 'custom-font';
 }

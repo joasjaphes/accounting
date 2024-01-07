@@ -3,19 +3,37 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { RegistrationComponent } from './registration/registration.component';
 import { SharedModule } from './shared/shared.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {subscriptSizing: 'dynamic'}}
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { subscriptSizing: 'dynamic' },
+    },
   ],
-  declarations: [AppComponent, WelcomeComponent, RegistrationComponent, LoginComponent, HomeComponent],
-  imports: [CommonModule, AppRoutingModule, BrowserModule, SharedModule],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    RegistrationComponent,
+    LoginComponent,
+    HomeComponent,
+  ],
+  imports: [
+    CommonModule,
+    AppRoutingModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

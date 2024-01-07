@@ -1,16 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { formSize, tableSize } from '../../animations';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../material/material.module';
-import { formSize, tableSize } from '../../animations';
 
 @Component({
   selector: 'app-page-layout',
-  standalone: true,
-  imports: [CommonModule, MaterialModule],
-  exportAs: 'pageLayout',
   templateUrl: './page-layout.component.html',
   styleUrl: './page-layout.component.css',
   animations: [tableSize, formSize],
+  standalone:true,
+  imports:[CommonModule, MaterialModule]
 })
 export class PageLayoutComponent implements OnInit {
   @Input() title = '';

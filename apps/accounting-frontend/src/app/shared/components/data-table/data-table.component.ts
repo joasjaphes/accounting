@@ -7,9 +7,8 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../material/material.module';
-
+import { CommonModule } from '@angular/common';
 export interface TableConfiguration {
   columns: Column[];
   actions?: { [key: string]: boolean };
@@ -27,10 +26,10 @@ export type ColumType = 'text' | 'number' | 'date' | 'currency';
 
 @Component({
   selector: 'app-data-table',
-  standalone: true,
-  imports: [CommonModule, MaterialModule],
   templateUrl: './data-table.component.html',
   styleUrl: './data-table.component.css',
+  standalone: true,
+  imports: [CommonModule, MaterialModule],
 })
 export class DataTableComponent implements OnInit, OnChanges {
   @Input() tableData = [];
@@ -39,7 +38,7 @@ export class DataTableComponent implements OnInit, OnChanges {
   @Input() tableConfiguration: TableConfiguration = {
     columns: [],
     actions: {},
-  }
+  };
   @Output() add = new EventEmitter();
   displayedColumns: string[] = [];
 
