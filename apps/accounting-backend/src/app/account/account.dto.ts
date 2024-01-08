@@ -3,6 +3,6 @@ export interface AccountDTO {
   id: string;
   name: string;
   description: string;
-  type: string;
+  category: string;
   company: string;
 }

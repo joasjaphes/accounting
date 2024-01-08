@@ -18,7 +18,7 @@ export class Account extends BaseEntity {
   @Column()
   description: string;
   @Column({ nullable: false })
-  type: string;
+  category: string;
   @ManyToOne(() => Company, (company) => company.accounts)
   company: Company;
 }

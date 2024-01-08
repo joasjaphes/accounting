@@ -71,7 +71,7 @@ export class AccountService {
       id: account.uid,
       name: account.name,
       description: account.description,
-      type: account.type,
+      category: account.category,
       company: account.company.uid,
     };
   }
@@ -85,7 +85,7 @@ export class AccountService {
     newAccount.uid = account.id;
     newAccount.name = account.name;
     newAccount.description = account.description;
-    newAccount.type = account.type;
+    newAccount.category = account.category;
     newAccount.company = companyPayload;
     return newAccount;
   }
