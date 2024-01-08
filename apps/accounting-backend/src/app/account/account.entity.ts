@@ -3,9 +3,11 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Company } from '../company/company.entity';
+import { TransactionEntity } from '../transactions/transaction.entity';
 
 @Entity()
 export class Account extends BaseEntity {
@@ -21,4 +23,6 @@ export class Account extends BaseEntity {
   category: string;
   @ManyToOne(() => Company, (company) => company.accounts)
   company: Company;
+  @OneToMany(() => TransactionEntity, (transaction) => transaction.account)
+  transactions: TransactionEntity[];
 }

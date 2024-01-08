@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { User } from '../user/user.entity';
 import { Account } from '../account/account.entity';
+import { TransactionEntity } from '../transactions/transaction.entity';
 
 @Entity()
 export class Company extends BaseEntity {
@@ -24,4 +25,6 @@ export class Company extends BaseEntity {
   users: User[];
   @OneToMany(() => Account, (account) => account.company)
   accounts: Account[];
+  @OneToMany(() => TransactionEntity, (transaction) => transaction.company)
+  transactions: TransactionEntity[];
 }
