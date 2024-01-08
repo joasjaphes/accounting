@@ -1,9 +1,9 @@
-import { Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClientService } from './http-client.service';
 import { Account } from '../store/accounts/account.model';
 import { firstValueFrom } from 'rxjs';
 
-@Inject({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' })
 export class AccountService {
   constructor(private http: HttpClientService) {}
 

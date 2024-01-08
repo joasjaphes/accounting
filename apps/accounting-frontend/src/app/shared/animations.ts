@@ -104,7 +104,7 @@ export const formSize = trigger('formSize', [
   transition(
     'twenty => zero',
     group([
-      animate('300ms ease-in', style({ opacity: 0 })),
+      animate('300ms ease-in', style({ opacity: 0})),
       animate('300ms ease-in', style({ width: '0px' })),
       animate('300ms ease-in', style({ transform: 'scale(0, 0)' })),
     ])
