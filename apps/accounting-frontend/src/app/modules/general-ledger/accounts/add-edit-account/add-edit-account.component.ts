@@ -1,5 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../../store';
+import { upsertAccount } from '../../../../store/accounts/accounts.actions';
+import { CommonService } from '../../../../services/common.service';
 
 @Component({
   selector: 'app-add-edit-account',
@@ -31,7 +35,11 @@ export class AddEditAccountComponent implements OnInit {
     },
   ];
   @Output() closeForm = new EventEmitter();
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private store: Store<AppState>,
+    private commonService: CommonService
+  ) {}
   ngOnInit(): void {
     console.log('AddEditAccountComponent initialized');
     this.initForm();
@@ -48,7 +56,10 @@ export class AddEditAccountComponent implements OnInit {
   async onSave() {
     try {
       const account = this.accountForm.value;
+      const id = this.commonService.makeId();
+      await this.store.dispatch(upsertAccount({ id, ...account }));
       console.log('Account', account);
+      this.onCloseForm();
     } catch (e) {
       console.error('Failed to save account', e);
     }
