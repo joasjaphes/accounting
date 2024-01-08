@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -28,8 +28,9 @@ export class AddEditAccountComponent implements OnInit {
     {
       name: 'Expense',
       value: 'expense',
-    }
-  ]
+    },
+  ];
+  @Output() closeForm = new EventEmitter();
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit(): void {
     console.log('AddEditAccountComponent initialized');
@@ -42,5 +43,18 @@ export class AddEditAccountComponent implements OnInit {
       description: '',
       category: '',
     });
+  }
+
+  async onSave() {
+    try {
+      const account = this.accountForm.value;
+      console.log('Account', account);
+    } catch (e) {
+      console.error('Failed to save account', e);
+    }
+  }
+
+  onCloseForm() {
+    this.closeForm.emit();
   }
 }

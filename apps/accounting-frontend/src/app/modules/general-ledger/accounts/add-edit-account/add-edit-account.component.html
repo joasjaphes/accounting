@@ -30,4 +30,7 @@
             </mat-error>
         </mat-form-field>
     </div>
+    <div class="mt-2 w-full">
+        <app-save-button [saveLabel]="'Submit'" [confirmFirst]="true" (save)="onSave()" (cancel)="onCloseForm()"></app-save-button>
+    </div>
 </form>
