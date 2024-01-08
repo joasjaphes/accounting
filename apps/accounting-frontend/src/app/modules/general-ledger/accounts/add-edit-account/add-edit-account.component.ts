@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store';
 import { upsertAccount } from '../../../../store/accounts/accounts.actions';
 import { CommonService } from '../../../../services/common.service';
+import { AccountService } from '../../../../services/accounts.service';
+import { Account } from '../../../../store/accounts/account.model';
 
 @Component({
   selector: 'app-add-edit-account',
@@ -38,7 +40,8 @@ export class AddEditAccountComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private accountService: AccountService
   ) {}
   ngOnInit(): void {
     console.log('AddEditAccountComponent initialized');
@@ -57,7 +60,12 @@ export class AddEditAccountComponent implements OnInit {
     try {
       const account = this.accountForm.value;
       const id = this.commonService.makeId();
-      this.store.dispatch(upsertAccount({ account: { id, ...account } }));
+      const accountPayload: Account = {
+        id,
+        ...account,
+      };
+      await this.accountService.saveAccount(accountPayload);
+      this.store.dispatch(upsertAccount({ account: accountPayload }));
       this.onCloseForm();
     } catch (e) {
       console.error('Failed to save account', e);
