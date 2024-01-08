@@ -57,8 +57,7 @@ export class AddEditAccountComponent implements OnInit {
     try {
       const account = this.accountForm.value;
       const id = this.commonService.makeId();
-      await this.store.dispatch(upsertAccount({ id, ...account }));
-      console.log('Account', account);
+      this.store.dispatch(upsertAccount({ account: { id, ...account } }));
       this.onCloseForm();
     } catch (e) {
       console.error('Failed to save account', e);
