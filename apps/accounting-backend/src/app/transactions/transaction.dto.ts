@@ -4,6 +4,7 @@ export interface TransactionDTO {
   date: string;
   amount: number;
   type: TransactionType;
+  journal:string;
 }
 
 export type TransactionType = 'Debit' | 'Credit';
