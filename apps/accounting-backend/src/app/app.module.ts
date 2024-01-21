@@ -22,7 +22,10 @@ import { controllers } from 'src/database/controllers';
     TypeOrmModule.forFeature([...entities]),
   ],
   controllers: [AppController, ...controllers],
-  providers: [AppService, ...services],
+  providers: [
+    AppService,
+    ...services
+  ],
 })
 export class AppModule {
   constructor() {

@@ -9,5 +9,5 @@ export const services = [
   UserService,
   AccountService,
   TransactionService,
-  JournalEntryService,
+  JournalEntryService
 ];

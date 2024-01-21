@@ -4,7 +4,7 @@ services:
   accounting-database:
     image: postgres:9.6
     container_name: accounting-database
-    restart: always
+    # restart: always
     environment:
       POSTGRES_PASSWORD: accounting
       POSTGRES_USER: accounting
@@ -23,7 +23,7 @@ services:
       - "npm install && npm run start:backend"
     volumes:
       - ./:/app
-    restart: always
+    # restart: always
     network_mode: host
     # ports:
     #   - 3000:3000
@@ -40,7 +40,7 @@ services:
       - "npm install && npm run start:frontend"
     volumes:
       - ./:/app
-    restart: always
+    # restart: always
     # ports:
     #   - "4000:4200"
     network_mode: host
