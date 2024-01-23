@@ -68,11 +68,11 @@ export class AccountService {
 
   getAccountDTOFromPayload(account: Account): AccountDTO {
     return {
-      id: account.uid,
-      name: account.name,
-      description: account.description,
-      category: account.category,
-      company: account.company.uid,
+      id: account?.uid,
+      name: account?.name,
+      description: account?.description,
+      category: account?.category,
+      company: account?.company?.uid,
     };
   }
 
