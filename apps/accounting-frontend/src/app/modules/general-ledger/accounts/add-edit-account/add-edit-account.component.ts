@@ -1,14 +1,21 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store';
 import { upsertAccount } from '../../../../store/accounts/accounts.actions';
 import { CommonService } from '../../../../services/common.service';
 import { AccountService } from '../../../../services/accounts.service';
 import { Account } from '../../../../store/accounts/account.model';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { SaveButtonComponent } from '../../../../shared/components/save-button/save-button.component';
+import { MatInputModule } from '@angular/material/input';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-add-edit-account',
+  standalone:true,
+  imports:[MatFormFieldModule,MatSelectModule,SaveButtonComponent, ReactiveFormsModule, MatInputModule,NgIf,NgFor],
   templateUrl: './add-edit-account.component.html',
   styleUrl: './add-edit-account.component.css',
 })

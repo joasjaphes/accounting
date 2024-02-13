@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -7,8 +8,10 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { MaterialModule } from '../../../material/material.module';
-import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon'
+
 export interface TableConfiguration {
   columns: Column[];
   actions?: { [key: string]: boolean };
@@ -29,7 +32,7 @@ export type ColumType = 'text' | 'number' | 'date' | 'currency';
   templateUrl: './data-table.component.html',
   styleUrl: './data-table.component.css',
   standalone: true,
-  imports: [CommonModule, MaterialModule],
+  imports: [NgIf,NgFor,ReactiveFormsModule,MatTableModule, MatIconModule],
 })
 export class DataTableComponent implements OnInit, OnChanges {
   @Input() tableData = [];

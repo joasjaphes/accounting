@@ -1,11 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../../material/material.module';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-save-button',
   standalone: true,
-  imports: [CommonModule, MaterialModule],
+  imports: [MatIconModule, NgIf],
   templateUrl: './save-button.component.html',
   styleUrl: './save-button.component.css',
 })

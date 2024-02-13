@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { formSize, tableSize } from '../../animations';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../../material/material.module';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-page-layout',
@@ -9,7 +10,7 @@ import { MaterialModule } from '../../../material/material.module';
   styleUrl: './page-layout.component.css',
   animations: [tableSize, formSize],
   standalone:true,
-  imports:[CommonModule, MaterialModule]
+  imports:[CommonModule, MatCardModule,MatIconModule]
 })
 export class PageLayoutComponent implements OnInit {
   @Input() title = '';

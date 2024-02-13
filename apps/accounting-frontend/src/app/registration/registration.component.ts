@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,9 +9,13 @@ import {
 } from '../shared/validators/password';
 import { RegistrationService } from '../services/registration.service';
 import { CommonService } from '../services/common.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-registration',
+  standalone: true,
+  imports: [ReactiveFormsModule, MatFormFieldModule, NgIf],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss',
 })
