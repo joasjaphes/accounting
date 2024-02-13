@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {
   DataTableComponent,
   TableConfiguration,
-} from '../../../shared/components/data-table/data-table.component';
+} from '../../shared/components/data-table/data-table.component';
 import { Observable } from 'rxjs';
-import { Account } from '../../../store/accounts/account.model';
-import { AppState } from '../../../store';
+import { Account } from '../../store/accounts/account.model';
+import { AppState } from '../../store';
 import { Store } from '@ngrx/store';
-import * as accountSelectors from '../../../store/accounts/accounts.selectors';
-import { PageLayoutComponent } from '../../../shared/components/page-layout/page-layout.component';
+import * as accountSelectors from '../../store/accounts/accounts.selectors';
+import { PageLayoutComponent } from '../../shared/components/page-layout/page-layout.component';
 import { AddEditAccountComponent } from './add-edit-account/add-edit-account.component';
 import { AsyncPipe } from '@angular/common';
 

@@ -16,10 +16,15 @@ export const menus: Menu[] = [
         path: 'general-ledger/accounts',
       },
       {
-        name: 'Journals',
-        icon: 'book',
-        path: '/journals',
+        name: 'Transactions',
+        icon: 'account_balance',
+        path: 'general-ledger/transactions',
       },
+      // {
+      //   name: 'Journals',
+      //   icon: 'book',
+      //   path: '/journals',
+      // },
     ],
   },
 ];

@@ -1,14 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../../../store';
-import { upsertAccount } from '../../../../store/accounts/accounts.actions';
-import { CommonService } from '../../../../services/common.service';
-import { AccountService } from '../../../../services/accounts.service';
-import { Account } from '../../../../store/accounts/account.model';
+import { AppState } from '../../../store';
+import { upsertAccount } from '../../../store/accounts/accounts.actions';
+import { CommonService } from '../../../services/common.service';
+import { AccountService } from '../../../services/accounts.service';
+import { Account } from '../../../store/accounts/account.model';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { SaveButtonComponent } from '../../../../shared/components/save-button/save-button.component';
+import { SaveButtonComponent } from '../../../shared/components/save-button/save-button.component';
 import { MatInputModule } from '@angular/material/input';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -24,23 +24,23 @@ export class AddEditAccountComponent implements OnInit {
   categories = [
     {
       name: 'Asset',
-      value: 'asset',
+      value: 'ASSET',
     },
     {
       name: 'Liability',
-      value: 'liability',
+      value: 'LIABILITY',
     },
     {
       name: 'Equity',
-      value: 'equity',
+      value: 'EQUITY',
     },
     {
       name: 'Revenue',
-      value: 'revenue',
+      value: 'REVENUE',
     },
     {
       name: 'Expense',
-      value: 'expense',
+      value: 'EXPENSE',
     },
   ];
   @Output() closeForm = new EventEmitter();
